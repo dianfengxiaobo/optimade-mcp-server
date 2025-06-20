@@ -1,0 +1,23 @@
+{
+  "optimadeBaseUrls": [
+    "https://optimade.fly.dev",
+    "https://optimade.odbx.science",
+    "https://www.crystallography.net/cod/optimade",
+    "https://aiida.materialscloud.org/mc3d/optimade",
+    "https://optimade.materialscloud.org/archive/c8-gy",
+    "https://optimade.materialscloud.org/archive/5p-vq",
+    "https://optimade.materialscloud.org/archive/vg-ya",
+    "https://optimade.materialsproject.org",
+    "https://optimade-gnome.odbx.science"
+  ],
+  "filterPresets": [
+    { "label": "Ag-only", "filter": "elements HAS \"Ag\"" },
+    { "label": "Au & Pt", "filter": "elements HAS ALL \"Au\", \"Pt\"" },
+    { "label": "Carbon-rich", "filter": "elements HAS \"Si\" nelements>=2 AND nelements<=7" },
+    { "label": "chemical formula descriptive", "filter": "chemical_formula_descriptive=\"(H2O)2 Na\"" },
+    { "label": "chemical formula reduced", "filter": "chemical_formula_reduced=\"H2NaO\"" },
+    { "label": "chemical formula hill", "filter": "chemical_formula_hill=\"H2O2\"" },
+    { "label": "chemical_formula_anonymous", "filter": "chemical_formula_anonymous=\"A2B\"" },
+    { "label": "nperiodic dimensions", "filter": "nperiodic_dimensions=3" }
+  ]
+}
