@@ -1,15 +1,29 @@
 [project]
 name = "optimade-mcp-server"
 version = "0.1.0"
-description = "Add your description here"
+description = "A MCP-compatible OPTIMADE server with configurable filters and endpoints."
 readme = "README.md"
+authors = [
+  { name = "Your Name", email = "your@email.com" }
+]
 requires-python = ">=3.10"
 dependencies = [
-    "httpx>=0.28.1",
-    "mcp[cli]>=1.9.4",
-    "optimade>=1.2.4",
-    "python-dotenv>=1.1.0",
-    "rich>=14.0.0",
+  "httpx>=0.28.1",
+  "mcp[cli]>=1.9.4",
+  "optimade>=1.2.4",
+  "rich>=14.0.0",
+  "python-dotenv>=1.0.1"
 ]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.package-data]
+"optimade_mcp_server.config" = ["*.json"]
+
 [tool.mcp.tool]
-optimade = "optimade_mcp_server.main:app"
+optimade = "optimade_mcp_server.main:main"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
