@@ -6,10 +6,18 @@ from pathlib import Path
 from optimade.client import OptimadeClient
 from mcp.server import Server
 from mcp.types import Tool, TextContent
+from dotenv import load_dotenv
 
 
-os.environ["HTTP_PROXY"] = "http://127.0.0.1:7897"
-os.environ["HTTPS_PROXY"] = "http://127.0.0.1:7897"
+# 加载 .env 文件内容
+load_dotenv()
+
+# 设置代理（仅在存在时设置）
+if os.getenv("HTTP_PROXY"):
+    os.environ["HTTP_PROXY"] = os.getenv("HTTP_PROXY")
+if os.getenv("HTTPS_PROXY"):
+    os.environ["HTTPS_PROXY"] = os.getenv("HTTPS_PROXY")
+
 # 日志配置
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger("optimade_mcp_server")

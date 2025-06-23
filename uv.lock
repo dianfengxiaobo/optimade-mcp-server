@@ -285,6 +285,7 @@ dependencies = [
     { name = "httpx" },
     { name = "mcp", extra = ["cli"] },
     { name = "optimade" },
+    { name = "python-dotenv" },
     { name = "rich" },
 ]
 
@@ -293,6 +294,7 @@ requires-dist = [
     { name = "httpx", specifier = ">=0.28.1" },
     { name = "mcp", extras = ["cli"], specifier = ">=1.9.4" },
     { name = "optimade", specifier = ">=1.2.4" },
+    { name = "python-dotenv", specifier = ">=1.1.0" },
     { name = "rich", specifier = ">=14.0.0" },
 ]
 
