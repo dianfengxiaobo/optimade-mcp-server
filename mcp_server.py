@@ -2,139 +2,142 @@ import asyncio
 import logging
 import os
 import json
+from pathlib import Path
 from optimade.client import OptimadeClient
 from mcp.server import Server
 from mcp.types import Tool, TextContent
 
-
-os.environ["HTTP_PROXY"] = "http://127.0.0.1:7897"
-os.environ["HTTPS_PROXY"] = "http://127.0.0.1:7897"
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
+# 日志配置
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger("optimade_mcp_server")
 
-def get_optimade_config():
-    """
-    获取 OPTIMADE 基础 URL 列表：
-      - 优先读取环境变量 OPTIMADE_BASE_URLS（逗号分隔）
-      - 否则使用内置默认列表
-    """
-    env = os.getenv("OPTIMADE_BASE_URLS")
-    if env:
-        urls = [u.strip() for u in env.split(",") if u.strip()]
-        if urls:
-            logger.info(f"使用环境变量 OPTIMADE_BASE_URLS: {urls}")
-            return urls
-    default_urls = [
-        "https://optimade.fly.dev",
-        "https://optimade.odbx.science"
-    ]
-    logger.info(f"使用默认 OPTIMADE_BASE_URLS: {default_urls}")
-    return default_urls
+# 读取配置文件
+BASE_DIR = Path(__file__).parent
+CONFIG_PATH = BASE_DIR / "config" / "optimade_config.json"
 
-# 初始化 MCP Server，名称可自定义，例如 "optimade"
+def load_config():
+    if not CONFIG_PATH.exists():
+        logger.warning(f"配置文件未找到: {CONFIG_PATH}, 使用内置默认")
+        return {}
+    try:
+        with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+            cfg = json.load(f)
+        logger.info(f"加载配置: {CONFIG_PATH}")
+        return cfg
+    except Exception as e:
+        logger.error(f"读取配置文件失败: {e}")
+        return {}
+
+CONFIG = load_config()
+DEFAULT_BASE_URLS = CONFIG.get("optimadeBaseUrls", [
+    "https://optimade.fly.dev",
+    "https://optimade.odbx.science"
+])
+FILTER_PRESETS = CONFIG.get("filterPresets", [
+    {"label": "Ag-only", "filter": "elements HAS \"Ag\""}
+])
+PRESET_MAP = {entry["label"]: entry["filter"] for entry in FILTER_PRESETS if "label" in entry and "filter" in entry}
+
+# MCP Server 初始化
 app = Server("optimade")
 
 @app.list_tools()
 async def list_tools() -> list[Tool]:
-    """
-    列出该 MCP Server 提供的工具。
-    这里只有一个工具: "query_optimade"，接收 filter 字符串，
-    可选参数 baseUrls 通过环境变量或默认值决定。
-    """
-    logger.info("list_tools() called")
-    # 定义工具的输入 schema: JSON schema 形式
+    preset_descriptions = "\n".join([f"- {label}: {filt}" for label, filt in PRESET_MAP.items()])
+    desc = (
+        "使用 OPTIMADE 查询结构数据。\n"
+        "参数说明：\n"
+        "  preset: 可选，使用预定义 filter 预设之一。\n"
+        f"    可选预设:\n{preset_descriptions}\n"
+        "  filter: 可选，自定义 filter 字符串，如果同时指定 preset，则优先使用 filter。\n"
+        "  baseUrls: 可选，字符串列表，覆盖默认的 OPTIMADE 提供者 URL 列表。\n"
+        "示例调用:\n"
+        "  {\"preset\": \"Ag-only\"}\n"
+        "  {\"filter\": \"elements HAS \\\"Si\\\"\", \"baseUrls\": [\"https://optimade.fly.dev\"]}\n"
+    )
+    input_schema = {
+        "type": "object",
+        "properties": {
+            "preset": {
+                "type": "string",
+                "description": "filter 预设名称，可选"
+            },
+            "filter": {
+                "type": "string",
+                "description": "自定义 filter，如果同时指定 preset，则优先使用此字段"
+            },
+            "baseUrls": {
+                "type": "array",
+                "items": {"type": "string"},
+                "description": "可选的 OPTIMADE URL 列表，覆盖默认"
+            }
+        },
+        "anyOf": [
+            {"required": ["filter"]},
+            {"required": ["preset"]}
+        ]
+    }
     return [
         Tool(
             name="query_optimade",
-            description="使用 OPTIMADE filter 查询结构数据，返回 JSON 字符串",
-            inputSchema={
-                "type": "object",
-                "properties": {
-                    "filter": {
-                        "type": "string",
-                        "description": 'OPTiMADE filter 表达式，例如: elements HAS "Ag"'
-                    },
-                    "baseUrls": {
-                        "type": "array",
-                        "items": {"type": "string"},
-                        "description": "可选的 OPTIMADE 基础 URL 列表，优先于环境变量",
-                    }
-                },
-                "required": ["filter"]
-            }
+            description=desc,
+            inputSchema=input_schema
         )
     ]
 
 @app.call_tool()
 async def call_tool(name: str, arguments: dict) -> list[TextContent]:
-    """
-    调用指定工具。这里只支持 name == "query_optimade"。
-    arguments: {"filter": str, "baseUrls": [str,...] (可选)}
-    返回 list[TextContent]，通常一个 TextContent 包含 JSON 字符串结果。
-    """
-    logger.info(f"call_tool() called: name={name}, arguments={arguments}")
+    logger.info(f"call_tool name={name}, arguments={arguments}")
     if name != "query_optimade":
         raise ValueError(f"Unknown tool: {name}")
 
-    # 提取 filter
-    filt = arguments.get("filter")
-    if not isinstance(filt, str) or not filt.strip():
-        raise ValueError("参数 'filter' 必须是非空字符串")
-
-    # 提取或获取 baseUrls
-    base_urls = arguments.get("baseUrls")
-    if base_urls is not None:
-        if not isinstance(base_urls, list) or not all(isinstance(u, str) for u in base_urls):
-            raise ValueError("参数 'baseUrls' 必须是字符串列表")
-        # 如果用户显式传 baseUrls，但列表为空，可报错或 fallback
-        if len(base_urls) == 0:
-            raise ValueError("参数 'baseUrls' 列表不能为空")
-        logger.info(f"使用用户传入的 baseUrls: {base_urls}")
+    # 处理 filter vs preset
+    filt = None
+    if "filter" in arguments and isinstance(arguments["filter"], str) and arguments["filter"].strip():
+        filt = arguments["filter"].strip()
+    elif "preset" in arguments and isinstance(arguments["preset"], str):
+        preset_name = arguments["preset"]
+        if preset_name not in PRESET_MAP:
+            raise ValueError(f"未知 preset: {preset_name}. 可选: {list(PRESET_MAP.keys())}")
+        filt = PRESET_MAP[preset_name]
     else:
-        base_urls = get_optimade_config()
+        raise ValueError("必须提供 'filter' 或 'preset' 参数")
 
-    # 执行 OPTIMADE 查询
+    # 处理 baseUrls 覆盖
+    if "baseUrls" in arguments:
+        bu = arguments["baseUrls"]
+        if not isinstance(bu, list) or not all(isinstance(u, str) for u in bu):
+            raise ValueError("参数 'baseUrls' 必须是字符串列表")
+        if len(bu) == 0:
+            raise ValueError("参数 'baseUrls' 列表不能为空")
+        base_urls = bu
+        logger.info(f"使用用户传入 baseUrls: {base_urls}")
+    else:
+        base_urls = DEFAULT_BASE_URLS
+        logger.info(f"使用默认 baseUrls: {base_urls}")
+
+    # 执行查询
     try:
-        logger.info(f"执行 OPTIMADE 查询: filter={filt}, base_urls={base_urls}")
+        logger.info(f"执行 OPTIMADE 查询: filter={filt}")
         client = OptimadeClient(base_urls=base_urls)
         results = client.get(filt)
-        # 将结果转换为 JSON 字符串
         text = json.dumps(results, indent=2)
         return [TextContent(type="text", text=text)]
     except Exception as e:
         logger.error(f"查询异常: {e}", exc_info=True)
-        # 返回错误信息给客户端
         return [TextContent(type="text", text=f"查询失败: {str(e)}")]
 
 async def main():
-    """
-    启动 MCP stdio 服务器主函数。
-    """
     from mcp.server.stdio import stdio_server
-
-    logger.info("Starting OPTIMADE MCP server...")
-    # 记录配置信息（可选）
-    urls = get_optimade_config()
+    logger.info("启动 OPTIMADE MCP 服务器...")
+    urls = DEFAULT_BASE_URLS
     logger.info(f"默认 OPTIMADE_BASE_URLS: {urls}")
-
-    # 启动 stdio server，等待 MCP 客户端连接
-    async with stdio_server() as (read_stream, write_stream):
+    async with stdio_server() as (r, w):
         try:
-            # create_initialization_options() 可传自定义初始化选项，这里用默认
-            await app.run(
-                read_stream,
-                write_stream,
-                app.create_initialization_options()
-            )
+            await app.run(r, w, app.create_initialization_options())
         except Exception as e:
             logger.error(f"MCP Server 运行出错: {e}", exc_info=True)
             raise
 
 if __name__ == "__main__":
-    # 在 Windows 下，确保 asyncio 事件循环策略兼容
-    # Python 3.8+ on Windows: 可使用 ProactorEventLoop（默认）
     asyncio.run(main())
