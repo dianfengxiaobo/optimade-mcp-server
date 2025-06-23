@@ -7,6 +7,9 @@ from optimade.client import OptimadeClient
 from mcp.server import Server
 from mcp.types import Tool, TextContent
 
+
+os.environ["HTTP_PROXY"] = "http://127.0.0.1:7897"
+os.environ["HTTPS_PROXY"] = "http://127.0.0.1:7897"
 # 日志配置
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger("optimade_mcp_server")
