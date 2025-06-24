@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "A MCP-compatible OPTIMADE server with configurable filters and endpoints."
 readme = "README.md"
 authors = [
-  { name = "Your Name", email = "your@email.com" }
+  { name = "lsb", email = "763568748@qq.com" }
 ]
 requires-python = ">=3.10"
 dependencies = [
@@ -15,15 +15,16 @@ dependencies = [
   "rich>=13.0,<14.dev0",
 ]
 
-[tool.setuptools]
-package-dir = { "" = "src" }
-
-[tool.setuptools.package-data]
-"optimade_mcp_server.config" = ["*.json"]
-
-[tool.mcp.tool]
-optimade = "optimade_mcp_server.main:main"
-
 [build-system]
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+packages = ["optimade_mcp_server"]
+
+[tool.setuptools.package-data]
+"optimade_mcp_server" = ["config/*.json"]
+
+[tool.mcp.tool]
+optimade = "optimade_mcp_server.main:main"
