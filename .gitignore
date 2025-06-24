@@ -1,10 +1,42 @@
-# Python-generated files
+# Byte-compiled / optimized / DLL files
 __pycache__/
-*.py[oc]
-build/
-dist/
-wheels/
-*.egg-info
+*.py[cod]
+*.so
 
-# Virtual environments
-.venv
+# Virtual environment
+.venv/
+env/
+ENV/
+venv/
+pyvenv.cfg
+.python-version
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+wheels/
+*.tar.gz
+*.whl
+
+# uv and pip files
+uv.lock
+pip-log.txt
+
+# dotenv environment config
+.env
+
+# VS Code and IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Mac OS & Linux
+.DS_Store
+.cache/
+*.swp
+*~
+
+# Project metadata cache
+CACHEDIR.TAG
