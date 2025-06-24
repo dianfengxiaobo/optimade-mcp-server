@@ -10,9 +10,9 @@ requires-python = ">=3.10"
 dependencies = [
   "httpx>=0.28.1",
   "mcp[cli]>=1.9.4",
-  "optimade>=1.2.4",
-  "rich>=14.0.0",
-  "python-dotenv>=1.0.1"
+  "optimade[http-client]>=1.2.4",
+  "python-dotenv>=1.0.1",
+  "rich>=13.0,<14.dev0",
 ]
 
 [tool.setuptools]
