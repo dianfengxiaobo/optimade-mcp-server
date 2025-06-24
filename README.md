@@ -1,5 +1,5 @@
 # OPTIMADE MCP SERVER
-A ModelContext Protocol (MCP) tool for querying OPTIMADE-compatible databases, fully configurable with custom filter presets and provider endpoints.
+A Model Context Protocol (MCP) tool for querying Optimade-compatible material databases, fully configurable custom filter presets and provider endpoints.
 # 🎯 Overview
 This tool enables structured data queries across multiple OPTIMADE databases (e.g., Materials Project, Materials Cloud, COD), via MCP protocol. Key capabilities include:
 
