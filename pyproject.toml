@@ -1,6 +1,6 @@
 [project]
 name = "optimade-mcp-server"
-version = "0.1.1"
+version = "0.1.2"
 description = "A MCP-compatible OPTIMADE server with configurable filters and endpoints."
 readme = "README.md"
 authors = [
@@ -20,7 +20,7 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project.scripts]
-optimade-mcp-server = "optimade_mcp_server.main:main"
+optimade-mcp-server = "optimade_mcp_server.main:sync_main"
 
 [tool.setuptools]
 package-dir = { "" = "src" }

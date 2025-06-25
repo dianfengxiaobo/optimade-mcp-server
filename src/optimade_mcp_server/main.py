@@ -73,7 +73,6 @@ async def list_tools() -> list[Tool]:
         )
     ]
 
-
 @app.call_tool()
 async def call_tool(name: str, args: dict) -> list[TextContent]:
     if name != "query_optimade":
@@ -99,6 +98,10 @@ async def main():
     logger.info("🔌 启动 OPTIMADE MCP 工具服务...")
     async with stdio_server() as (r, w):
         await app.run(r, w, app.create_initialization_options())
+
+def sync_main():
+    """同步入口点，用于 console_scripts"""
+    asyncio.run(main())
 
 if __name__ == "__main__":
     asyncio.run(main())
