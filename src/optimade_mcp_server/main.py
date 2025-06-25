@@ -51,9 +51,19 @@ async def list_tools() -> list[Tool]:
             inputSchema={
                 "type": "object",
                 "properties": {
-                    "filter": {"type": "string"},
-                    "preset": {"type": "string"},
-                    "baseUrls": {"type": "array", "items": {"type": "string"}}
+                    "filter": {
+                        "type": "string",
+                        "description": "A custom OPTIMADE filter string (e.g., 'elements HAS \"Si\"')"
+                    },
+                    "preset": {
+                        "type": "string",
+                        "description": "The name of a predefined filter preset (e.g., 'Ag-only')"
+                    },
+                    "baseUrls": {
+                        "type": "array",
+                        "items": {"type": "string"},
+                        "description": "A list of OPTIMADE provider base URLs to query"
+                    }
                 },
                 "anyOf": [
                     {"required": ["filter"]},
@@ -62,6 +72,7 @@ async def list_tools() -> list[Tool]:
             }
         )
     ]
+
 
 @app.call_tool()
 async def call_tool(name: str, args: dict) -> list[TextContent]:
