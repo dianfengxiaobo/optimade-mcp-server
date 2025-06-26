@@ -20,9 +20,14 @@ uv pip install optimade-mcp-server
 ~~~~~~
 {
   "mcpServers": {
-    "optimade": {
-      "command": "uv",
-      "args": ["--directory", "optimade-mcp-server", "run", "optimade"]
+    "optimade_mcp_server": {
+      "disabled": false,
+      "timeout": 60,
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "optimade-mcp-server"
+      ]
     }
   }
 }
