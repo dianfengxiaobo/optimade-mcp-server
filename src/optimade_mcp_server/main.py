@@ -97,6 +97,35 @@ async def list_resources() -> list[Resource]:
     ]
     return static_resources + dynamic_resources
 
+
+@app.read_resource()
+async def read_resource(uri: str) -> TextContent:
+    # 静态部分
+    static = {
+        "optimade://docs/filters": TextContent(type="text", text=FILTER_DOC_TEXT),
+        "optimade://docs/providers": TextContent(
+            type="text",
+            text=json.dumps({"baseUrls": DEFAULT_BASE_URLS}, indent=2, ensure_ascii=False),
+        ),
+        "optimade://docs/filter_presets": TextContent(
+            type="text",
+            text=json.dumps(FILTER_PRESETS, indent=2, ensure_ascii=False),
+        ),
+        "optimade://prompts/ask_for_provider": TextContent(type="text", text=ASK_PROMPT_TEXT),
+    }
+    if uri in static:
+        return static[uri]
+
+    # 动态查询结果
+    if uri.startswith("optimade://results/"):
+        key = uri.rsplit("/", 1)[-1]
+        path = _dynamic_results.get(key)
+        if path and path.exists():
+            return TextContent(type="text", text=path.read_text(encoding="utf-8"))
+
+    raise ValueError(f"Resource not found: {uri}")
+
+
 # 3.2 工具定义
 @app.list_tools()
 async def list_tools() -> list[Tool]:
@@ -154,10 +183,37 @@ async def _handle_query_optimade(args: dict) -> list[TextContent]:
     except Exception as e:
         return [TextContent(type="text", text=f"查询失败: {e}")]
 
-    # 保存完整 JSON
-    key = uuid.uuid4().hex
+    results, total, preview_block = None, 0, []
+
+    try:
+        results = client.get(filt, page_limit=page_limit, page_offset=page_off)
+    except Exception as e:
+        return [TextContent(type="text", text=f"查询失败: {e}")]
+
+    # ------- ① 兼容 dict / OptimadeQueryResults ------------------------------
+    if isinstance(results, dict):
+        raw_json = results
+        total    = len(raw_json.get("data", []))
+        data     = raw_json.get("data", [])
+    else:
+        raw_json = results.raw
+        total    = results.meta.get("data_available", len(results.data))
+        data     = results.data
+
+    preview_block = [
+        {
+            "id": (d["id"] if isinstance(d, dict) else d.id),
+            "formula": (
+                d["attributes"].get("chemical_formula_reduced")
+                if isinstance(d, dict) else d.attributes.get("chemical_formula_reduced")
+            )
+        } for d in data[:5]
+    ]
+
+    # ------- ② 保存完整 JSON ---------------------------------------------------
+    key  = uuid.uuid4().hex
     path = RES_DIR / f"{key}.json"
-    path.write_text(json.dumps(results, indent=2, ensure_ascii=False))
+    path.write_text(json.dumps(raw_json, indent=2, ensure_ascii=False))
     _dynamic_results[key] = path
 
     # 预览摘要
@@ -171,7 +227,7 @@ async def _handle_query_optimade(args: dict) -> list[TextContent]:
         for r in results.data[:min(len(results.data), 5)]
     ]
 
-    return [TextContent(type="text", text=summary)]
+    return [TextContent(type="text")]
 
 # ── 3.3.b Provider 抓取工具 ───────────────────────────────────────────────
 async def _handle_list_providers() -> list[TextContent]:

@@ -1,0 +1,228 @@
+{
+  "structures": {
+    "elements HAS ALL \"Mg\", \"S\" AND nelements = 2": {
+      "https://optimade.fly.dev": {
+        "data": [],
+        "errors": [],
+        "links": {
+          "next": null,
+          "prev": null
+        },
+        "included": [],
+        "meta": {
+          "query": {
+            "representation": "/structures?filter=elements%20HAS%20ALL%20%22Mg%22,%20%22S%22%20AND%20nelements%20=%202"
+          },
+          "api_version": "1.2.0",
+          "more_data_available": false,
+          "schema": "https://schemas.optimade.org/openapi/v1.2.0/optimade.json",
+          "time_stamp": "2025-07-30T07:48:14.258869",
+          "data_returned": 0,
+          "provider": {
+            "name": "Example provider",
+            "description": "Provider used for examples, not to be assigned to a real database",
+            "prefix": "exmpl",
+            "homepage": "https://example.com/"
+          },
+          "data_available": 17,
+          "request_delay": 0.1,
+          "implementation": {
+            "name": "Example implementation",
+            "version": "1.2.4",
+            "source_url": "https://github.com/Materials-Consortia/optimade-python-tools",
+            "maintainer": {
+              "email": "test@test.org"
+            },
+            "issue_tracker": "https://github.com/Materials-Consortia/optimade-python-tools/issues"
+          }
+        }
+      },
+      "https://optimade.odbx.science": {
+        "data": [],
+        "errors": [],
+        "links": {
+          "next": null,
+          "prev": null
+        },
+        "included": [],
+        "meta": {
+          "query": {
+            "representation": "/structures?filter=elements%20HAS%20ALL%20%22Mg%22,%20%22S%22%20AND%20nelements%20=%202"
+          },
+          "api_version": "1.1.0",
+          "more_data_available": false,
+          "schema": "https://schemas.optimade.org/openapi/v1.1.0/optimade.json",
+          "time_stamp": "2025-07-30T07:48:15.038057",
+          "data_returned": 0,
+          "provider": {
+            "name": "Open Database of Xtals",
+            "description": "The Open Database of Xtals is run by the group of Dr Andrew Morris at the universities of Birmingham and Cambridge and is constructed using the matador library.",
+            "prefix": "odbx",
+            "homepage": "https://odbx.science/"
+          },
+          "data_available": 56,
+          "implementation": {
+            "name": "optimade-python-tools (modified for odbx.science)",
+            "version": "0.1",
+            "source_url": "https://github.com/ml-evs/odbx.science",
+            "maintainer": {
+              "email": "web@odbx.science"
+            },
+            "issue_tracker": "https://github.com/ml-evs/odbx.science/issues"
+          }
+        }
+      },
+      "https://www.crystallography.net/cod/optimade": {
+        "data": [],
+        "errors": [
+          "ProxyError: HTTPSConnectionPool(host='www.crystallography.net', port=443): Max retries exceeded with url: /cod/optimade/v1/structures?filter=elements%20HAS%20ALL%20%22Mg%22,%20%22S%22%20AND%20nelements%20=%202 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))"
+        ],
+        "links": {},
+        "included": [],
+        "meta": {}
+      },
+      "https://optimade.materialscloud.org/archive/5p-vq": {
+        "data": [
+          {
+            "id": "mp-1185942",
+            "type": "structures",
+            "attributes": {
+              "immutable_id": "campaign.tar.gz/0007/results/structures/mp-1185942.cif",
+              "last_modified": "2024-08-05T12:53:10.227548",
+              "elements": [
+                "Mg",
+                "S"
+              ],
+              "nelements": 2,
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "chemical_formula_descriptive": "Mg2S2",
+              "chemical_formula_reduced": "MgS",
+              "chemical_formula_hill": null,
+              "chemical_formula_anonymous": "AB",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "nperiodic_dimensions": 3,
+              "lattice_vectors": [
+                [
+                  4.03462239,
+                  0.0,
+                  0.0
+                ],
+                [
+                  -2.017311168777182,
+                  3.494085499557238,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  6.43229418
+                ]
+              ],
+              "cartesian_site_positions": [
+                [
+                  -1.9998293075793227e-06,
+                  2.329391497733325,
+                  6.404988126361773
+                ],
+                [
+                  2.0173132210521256,
+                  1.1646940018239127,
+                  3.188841036361773
+                ],
+                [
+                  2.0173132210521256,
+                  1.1646940018239127,
+                  5.655557028844047
+                ],
+                [
+                  -1.9998293075793227e-06,
+                  2.329391497733325,
+                  2.4394099388440473
+                ]
+              ],
+              "nsites": 4,
+              "species": [
+                {
+                  "name": "S",
+                  "chemical_symbols": [
+                    "S"
+                  ],
+                  "concentration": [
+                    1.0
+                  ],
+                  "mass": null,
+                  "original_name": null,
+                  "attached": null,
+                  "nattached": null
+                },
+                {
+                  "name": "Mg",
+                  "chemical_symbols": [
+                    "Mg"
+                  ],
+                  "concentration": [
+                    1.0
+                  ],
+                  "mass": null,
+                  "original_name": null,
+                  "attached": null,
+                  "nattached": null
+                }
+              ],
+              "species_at_sites": [
+                "Mg",
+                "Mg",
+                "S",
+                "S"
+              ],
+              "assemblies": null,
+              "structure_features": [],
+              "_mcloudarchive_band_gap": 3.3877999999999995,
+              "_mcloudarchive_refractive_index": 2.004516115774646
+            }
+          }
+        ],
+        "errors": [],
+        "links": {
+          "next": null,
+          "prev": null
+        },
+        "included": [],
+        "meta": {
+          "query": {
+            "representation": "/structures?filter=elements%20HAS%20ALL%20%22Mg%22,%20%22S%22%20AND%20nelements%20=%202"
+          },
+          "api_version": "1.1.0",
+          "more_data_available": false,
+          "schema": "https://schemas.optimade.org/openapi/v1.1.0/optimade.json",
+          "time_stamp": "2025-07-30T07:49:16.178617",
+          "data_returned": 1,
+          "provider": {
+            "name": "Materials Cloud Archive",
+            "description": "A platform for Open Science built for seamless sharing of resources in computational materials science",
+            "prefix": "mcloudarchive",
+            "homepage": "https://archive.materialscloud.org/"
+          },
+          "data_available": 2307,
+          "implementation": {
+            "name": "OPTIMADE Python Tools",
+            "version": "1.1.1",
+            "homepage": "https://optimade.org/optimade-python-tools",
+            "source_url": "https://github.com/Materials-Consortia/optimade-python-tools",
+            "maintainer": {
+              "email": "dev@optimade.org"
+            },
+            "issue_tracker": "https://github.com/Materials-Consortia/optimade-python-tools/issues"
+          }
+        }
+      }
+    }
+  }
+}
