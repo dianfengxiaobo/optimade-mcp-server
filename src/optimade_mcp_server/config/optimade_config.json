@@ -3,12 +3,7 @@
     "https://optimade.fly.dev",
     "https://optimade.odbx.science",
     "https://www.crystallography.net/cod/optimade",
-    "https://aiida.materialscloud.org/mc3d/optimade",
-    "https://optimade.materialscloud.org/archive/c8-gy",
-    "https://optimade.materialscloud.org/archive/5p-vq",
-    "https://optimade.materialscloud.org/archive/vg-ya",
-    "https://optimade.materialsproject.org",
-    "https://optimade-gnome.odbx.science"
+    "https://optimade.materialscloud.org/archive/5p-vq"
   ],
   "filterPresets": [
     { "label": "Ag-only", "filter": "elements HAS \"Ag\"" },
