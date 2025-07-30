@@ -18,6 +18,11 @@
     { "label": "chemical formula reduced", "filter": "chemical_formula_reduced=\"H2NaO\"" },
     { "label": "chemical formula hill", "filter": "chemical_formula_hill=\"H2O2\"" },
     { "label": "chemical_formula_anonymous", "filter": "chemical_formula_anonymous=\"A2B\"" },
-    { "label": "nperiodic dimensions", "filter": "nperiodic_dimensions=3" }
+    { "label": "nperiodic dimensions", "filter": "nperiodic_dimensions=x" },
+    { "label": "dimension_types", "filter": "dimension_types=\"x,y,z\""},
+    { "label": "space_group_it_number", "filter": "space_group_it_number=x"},
+    { "label": "cartesian_site_positions", "filter": "cartesian_site_positions=\"[[0,0,0],[0,0,2]]\""},
+    { "label": "nsites", "filter": "nsites>=2 AND nsites<=7"},
+    { "label": "species_at_sites", "filter": "nsites>=2 AND nsites<=7"}
   ]
 }
