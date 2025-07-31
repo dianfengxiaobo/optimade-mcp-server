@@ -1,0 +1,10 @@
+{
+  "queryableProps": [
+    "elements",
+    "nelements",
+    "elements_ratios",
+    "chemical_formula_descriptive",
+    "nperiodic_dimensions",
+    "nsites"
+  ]
+}

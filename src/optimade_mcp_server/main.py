@@ -1,19 +1,30 @@
+"""
+optimade_mcp_server.main
+────────────────────────
+• `list_resources`  : 暴露文档、白名单、查询结果
+• `list_tools`      : query_optimade / list_providers / lint_filter
+• `read_resource`   : 让 cline 的 access_mcp_resource 生效
+• `call_tool`       : 分派三种工具
+"""
+
 import asyncio, logging, os, json, uuid
 from pathlib import Path
 from dotenv import load_dotenv
 import importlib.resources as pkg_resources
 from optimade.client import OptimadeClient
+from optimade.filterparser import LarkParser
 from mcp.server import Server
 from mcp.types import Tool, TextContent, Resource
+from pydantic import AnyUrl
 
-# ── 0 环境与日志 ───────────────────────────────────────────────────────────
+# ── 0. 环境与日志 ──────────────────────────────────────────────────────────
 load_dotenv()
 os.environ["HTTP_PROXY"]  = os.getenv("HTTP_PROXY", "")
 os.environ["HTTPS_PROXY"] = os.getenv("HTTPS_PROXY", "")
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("optimade_mcp_server")
 
-# ── 1 读取配置 ─────────────────────────────────────────────────────────────
+# ── 1. 读取配置 (少量代表 provider + 预设) ──────────────────────────────────
 def load_config() -> dict:
     try:
         with pkg_resources.files("optimade_mcp_server.config") \
@@ -23,31 +34,43 @@ def load_config() -> dict:
             return json.load(f)
     except Exception:
         dev_path = Path(__file__).parent / "config" / "optimade_config.json"
+        logger.info("使用开发路径配置")
         return json.loads(dev_path.read_text(encoding="utf-8"))
 
 CONFIG             = load_config()
 DEFAULT_BASE_URLS   = CONFIG.get("optimadeBaseUrls", [])
 FILTER_PRESETS      = CONFIG.get("filterPresets", [])
 
-# ── 2 常量路径 ─────────────────────────────────────────────────────────────
-PKG_DIR   = Path(__file__).parent
-DOCS_DIR  = PKG_DIR / "docs"
-RES_DIR   = PKG_DIR / "results"
+# ── 2. 路径常量 & 读取静态资源 ─────────────────────────────────────────────
+PKG_DIR  = Path(__file__).parent
+DOCS_DIR = PKG_DIR / "docs"
+RES_DIR  = PKG_DIR / "results"
 RES_DIR.mkdir(exist_ok=True)
 
-FILTER_DOC_TEXT = (DOCS_DIR / "optimade_filters_original.md").read_text(encoding="utf-8")
-ASK_PROMPT_TEXT = (DOCS_DIR / "ask_for_provider.txt").read_text(encoding="utf-8")
+def safe_read(path: Path) -> str:
+    if path.exists():
+        return path.read_text(encoding="utf-8")
+    logger.warning(f"缺失文件: {path}")
+    return "<<FILE MISSING>>"
 
-# 用于动态追加结果资源
+FILTER_DOC_TEXT = safe_read(DOCS_DIR / "optimade_filters_original.md")
+ASK_PROMPT_TEXT = safe_read(DOCS_DIR / "ask_for_provider.txt")
+QUERY_JSON      = safe_read(DOCS_DIR / "queryable_props.json")
+try:
+    QUERYABLE = set(json.loads(QUERY_JSON)["queryableProps"])
+except Exception:
+    QUERYABLE = set()
+
+# 用于挂载运行期结果
 _dynamic_results: dict[str, Path] = {}
 
-# ── 3 MCP Server ───────────────────────────────────────────────────────────
+# ── 3. MCP Server 对象 ─────────────────────────────────────────────────────
 app = Server("optimade")
 
-# 3.1 静态 + 动态资源
+# 3.1 list_resources --------------------------------------------------------
 @app.list_resources()
 async def list_resources() -> list[Resource]:
-    static_resources = [
+    static = [
         Resource(
             uri="optimade://docs/filters",
             name="OPTIMADE Filter Reference",
@@ -59,7 +82,7 @@ async def list_resources() -> list[Resource]:
             uri="optimade://docs/providers",
             name="Default Provider URL List",
             mimeType="application/json",
-            description="Representative providers used when 'baseUrls' is omitted.",
+            description="Representative providers used when baseUrls omitted.",
             content=TextContent(
                 type="text",
                 text=json.dumps({"baseUrls": DEFAULT_BASE_URLS}, indent=2, ensure_ascii=False),
@@ -79,65 +102,64 @@ async def list_resources() -> list[Resource]:
             uri="optimade://prompts/ask_for_provider",
             name="Prompt: ask_for_provider",
             mimeType="text/plain",
-            description="System prompt that guides LLM when baseUrls are missing.",
+            description="System prompt guiding LLM when baseUrls missing (prefers white‑list fields).",
             content=TextContent(type="text", text=ASK_PROMPT_TEXT),
         ),
-    ]
-
-    # 动态查询结果
-    dynamic_resources = [
         Resource(
-            uri=f"optimade://results/{key}",
-            name=f"Query Result {key[:8]}",
+            uri="optimade://spec/queryable_props",
+            name="Queryable Property White‑List",
             mimeType="application/json",
-            description="Full JSON returned by a previous query_optimade call.",
-            content=TextContent(type="text", text=path.read_text(encoding="utf-8")),
+            description="All identifiers marked 'Query: MUST be queryable property'.",
+            content=TextContent(type="text", text=QUERY_JSON),
         )
-        for key, path in _dynamic_results.items()
     ]
-    return static_resources + dynamic_resources
 
+    dynamic = [
+        Resource(
+            uri=f"optimade://results/{k}",
+            name=f"Query Result {k[:8]}",
+            mimeType="application/json",
+            description="Full JSON returned by previous query_optimade.",
+            content=TextContent(type="text", text=p.read_text(encoding="utf-8")),
+        )
+        for k, p in _dynamic_results.items()
+    ]
+    return static + dynamic
 
+# 3.2 read_resource ---------------------------------------------------------
 @app.read_resource()
-async def read_resource(uri: str) -> TextContent:
-    # 静态部分
-    static = {
-        "optimade://docs/filters": TextContent(type="text", text=FILTER_DOC_TEXT),
-        "optimade://docs/providers": TextContent(
-            type="text",
-            text=json.dumps({"baseUrls": DEFAULT_BASE_URLS}, indent=2, ensure_ascii=False),
-        ),
-        "optimade://docs/filter_presets": TextContent(
-            type="text",
-            text=json.dumps(FILTER_PRESETS, indent=2, ensure_ascii=False),
-        ),
-        "optimade://prompts/ask_for_provider": TextContent(type="text", text=ASK_PROMPT_TEXT),
-    }
-    if uri in static:
-        return static[uri]
+async def read_resource(uri) -> TextContent:
+    uri = str(uri)                       # ← Δ1
 
-    # 动态查询结果
-    if uri.startswith("optimade://results/"):
+    static_map = {
+        "optimade://docs/filters": FILTER_DOC_TEXT,
+        "optimade://docs/providers": json.dumps({"baseUrls": DEFAULT_BASE_URLS}, indent=2),
+        "optimade://docs/filter_presets": json.dumps(FILTER_PRESETS, indent=2),
+        "optimade://prompts/ask_for_provider": ASK_PROMPT_TEXT,
+        "optimade://spec/queryable_props": QUERY_JSON,
+    }
+    if uri in static_map:
+        return TextContent(type="text", text=static_map[uri])
+
+    if uri.startswith("optimade://results/"):    # ← Δ2：不会再报错
         key = uri.rsplit("/", 1)[-1]
         path = _dynamic_results.get(key)
         if path and path.exists():
-            return TextContent(type="text", text=path.read_text(encoding="utf-8"))
+            return TextContent(type="text", text=path.read_text())
 
     raise ValueError(f"Resource not found: {uri}")
 
 
-# 3.2 工具定义
+# 3.3 list_tools ------------------------------------------------------------
 @app.list_tools()
 async def list_tools() -> list[Tool]:
     return [
-        # 3.2.1 查询工具（移除分页参数）
         Tool(
             name="query_optimade",
             description=(
                 "Query OPTIMADE providers with a custom filter.\n"
-                "• `filter` mandatory; `baseUrls` optional.\n"
-                "• If `baseUrls` omitted, falls back to resource `optimade://docs/providers`.\n"
-                "• Returns a summary and saves full result as downloadable resource."
+                "• If baseUrls omitted, falls back to default providers.\n"
+                "• Runs lint first: syntax errors block query; non‑white‑list fields only warn."
             ),
             inputSchema={
                 "type": "object",
@@ -148,98 +170,127 @@ async def list_tools() -> list[Tool]:
                 "required": ["filter"]
             }
         ),
-        # 3.2.2 新增：实时抓取全部 Provider 列表
+        Tool(
+            name="lint_filter",
+            description="Return 'ok', 'warn: …', or 'syntax error: …' for a filter string.",
+            inputSchema={
+                "type": "object",
+                "properties": {"filter": {"type": "string"}},
+                "required": ["filter"]
+            }
+        ),
         Tool(
             name="list_providers",
-            description=(
-                "Fetch the current global OPTIMADE provider list via OptimadeClient "
-                "and return as JSON."
-            ),
+            description="Fetch global public OPTIMADE provider URLs via OptimadeClient.",
             inputSchema={"type": "object", "properties": {}}
         )
     ]
 
-# 3.3 工具实现
+# ── 3.4 工具实现 -----------------------------------------------------------
 @app.call_tool()
 async def call_tool(name: str, args: dict) -> list[TextContent]:
+    if name == "lint_filter":
+        return [_lint_filter(args["filter"])]
+    if name == "list_providers":
+        return [_handle_list_providers()]
     if name == "query_optimade":
         return await _handle_query_optimade(args)
-    elif name == "list_providers":
-        return await _handle_list_providers()
-    else:
-        raise ValueError("Unknown tool")
+    raise ValueError("Unknown tool")
 
-# ── 3.3.a 查询工具逻辑 ────────────────────────────────────────────────────
+# --- lint_filter 内部逻辑 ---------------------------------------------------
+def _lint_filter(filt: str) -> TextContent:
+    # 1. 语法
+    try:
+        tree = LarkParser().parse(filt)
+    except Exception as e:
+        return TextContent(type="text", text=f"syntax error: {e}")
+
+    # 2. 字段收集
+    identifiers = {
+        tok.value for tok in tree.scan_values(
+            lambda v: hasattr(v, 'type') and v.type == 'IDENTIFIER'
+        )
+    }
+    illegal = sorted(identifiers - QUERYABLE)
+    msg = "ok" if not illegal else ("warn: " + ", ".join(illegal))
+    return TextContent(type="text", text=msg)
+
+# --- list_providers --------------------------------------------------------
+def _handle_list_providers() -> TextContent:
+    try:
+        urls = sorted(OptimadeClient().base_urls)
+        text = "Discovered OPTIMADE provider URLs:\n" + "\n".join(f"- {u}" for u in urls)
+    except Exception as e:
+        text = f"Failed to fetch provider list: {e}"
+    return TextContent(type="text", text=text)
+
+# --- query_optimade --------------------------------------------------------
 async def _handle_query_optimade(args: dict) -> list[TextContent]:
     filt = args["filter"]
-    urls = args.get("baseUrls") or DEFAULT_BASE_URLS
+    urls = args.get("baseUrls") or DEFAULT_BASE_URLS or ["https://optimade.fly.dev"]
 
-    if not urls:
-        urls = ["https://optimade.fly.dev"]
+    # 0. lint
+    lint_msg = _lint_filter(filt).text
+    if lint_msg.startswith("syntax error"):
+        return [TextContent(type="text", text=f"lint failed: {lint_msg}")]
 
-    client = OptimadeClient(base_urls=urls)
+    warn_note = ""
+    if lint_msg.startswith("warn:"):
+        warn_note = f"(⚠ 非白名单字段: {lint_msg[5:]})\n"
+
+    # 1. 查询
     try:
-        results = client.get(filt)
+        results = OptimadeClient(base_urls=urls).get(filt)
     except Exception as e:
         return [TextContent(type="text", text=f"查询失败: {e}")]
 
-    results, total, preview_block = None, 0, []
-
-    try:
-        results = client.get(filt, page_limit=page_limit, page_offset=page_off)
-    except Exception as e:
-        return [TextContent(type="text", text=f"查询失败: {e}")]
-
-    # ------- ① 兼容 dict / OptimadeQueryResults ------------------------------
+    # 2. 统一拆包
     if isinstance(results, dict):
         raw_json = results
-        total    = len(raw_json.get("data", []))
-        data     = raw_json.get("data", [])
+        if "structures" in raw_json:                # 多 provider 聚合格式
+            provider_map = next(iter(raw_json["structures"].values()))
+            data_list = []
+            total = 0
+            for body in provider_map.values():
+                data = body.get("data", [])
+                total += body.get("meta", {}).get("data_available", len(data))
+                data_list.extend(data)
+        else:
+            data_list = raw_json.get("data", [])
+            total = len(data_list)
     else:
         raw_json = results.raw
-        total    = results.meta.get("data_available", len(results.data))
-        data     = results.data
+        data_list = results.data
+        total = results.meta.get("data_available", len(data_list))
 
-    preview_block = [
-        {
-            "id": (d["id"] if isinstance(d, dict) else d.id),
-            "formula": (
-                d["attributes"].get("chemical_formula_reduced")
-                if isinstance(d, dict) else d.attributes.get("chemical_formula_reduced")
-            )
-        } for d in data[:5]
-    ]
-
-    # ------- ② 保存完整 JSON ---------------------------------------------------
+    # 3. 保存完整 JSON
     key  = uuid.uuid4().hex
     path = RES_DIR / f"{key}.json"
     path.write_text(json.dumps(raw_json, indent=2, ensure_ascii=False))
     _dynamic_results[key] = path
 
-    # 预览摘要
-    total = results.meta.get("data_available", len(results.data))
-    preview = [
-        {
-            "id": r.id,
-            "formula": r.attributes.get("chemical_formula_reduced"),
-            "url": r.links.self
-        }
-        for r in results.data[:min(len(results.data), 5)]
-    ]
+    # 4. 摘要
+    preview = []
+    for d in data_list[:5]:
+        if isinstance(d, dict):
+            pid   = d.get("id")
+            attrs = d.get("attributes", {})
+        else:
+            pid   = d.id
+            attrs = d.attributes
+        preview.append({"id": pid, "formula": attrs.get("chemical_formula_reduced")})
 
-    return [TextContent(type="text")]
+    summary = (
+        warn_note +
+        f"Total matched structures: {total}\n"
+        f"Preview (first {len(preview)}):\n"
+        f"{json.dumps(preview, indent=2, ensure_ascii=False)}\n\n"
+        f"Full result saved to resource: optimade://results/{key}\n"
+        f"Use `resources/read` to download."
+    )
+    return [TextContent(type="text", text=summary)]
 
-# ── 3.3.b Provider 抓取工具 ───────────────────────────────────────────────
-async def _handle_list_providers() -> list[TextContent]:
-    try:
-        provider_client = OptimadeClient()   # Discover mode
-        urls = sorted(provider_client.base_urls)
-        text = "Discovered OPTIMADE provider URLs:\n" + "\n".join(f"- {u}" for u in urls)
-    except Exception as e:
-        text = f"Failed to fetch provider list: {e}"
-    return [TextContent(type="text", text=text)]
-
-# ── 4 启动 ────────────────────────────────────────────────────────────────
+# ── 4. 启动 ────────────────────────────────────────────────────────────────
 async def main():
     from mcp.server.stdio import stdio_server
     logger.info("🔌 OPTIMADE MCP Server started")

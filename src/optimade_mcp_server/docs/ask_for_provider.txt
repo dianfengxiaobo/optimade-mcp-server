@@ -1,13 +1,13 @@
-# ask_for_provider
-
+# ask_for_provider 
 If the user does **not** supply `baseUrls` when invoking `query_optimade`:
 
-1.  Read resource `optimade://docs/providers` to get the default list of OPTIMADE
-provider URLs.
-2.  Pick 3–5 suitable providers (public mirrors, high‑uptime services, or those
-most relevant to the user's query).
-3.  Ask the user to confirm or modify that list before you call the tool.
-
+1. Read resource `optimade://docs/providers` to get the default list
+   of OPTIMADE provider URLs.
+2. When constructing a filter, it is recommended to use only identifiers that are listed in resource optimade://spec/queryable_props 
+   (i.e., fields marked as “Query: MUST be a queryable property”).
+3. Propose 3–5 provider URLs that best fit the query and ask the user
+   to confirm.
+   
 Example interaction you should produce:
 
 —
