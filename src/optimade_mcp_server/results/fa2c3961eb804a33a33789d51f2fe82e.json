@@ -1,0 +1,2900 @@
+{
+  "structures": {
+    "(nelements = 2) AND (elements HAS ANY \"Ga\", \"In\", \"Al\") AND (elements HAS ANY \"As\", \"P\", \"N\") AND (NOT elements HAS \"Pb\")": {
+      "https://optimade.fly.dev": {
+        "data": [],
+        "errors": [],
+        "links": {
+          "next": null,
+          "prev": null
+        },
+        "included": [],
+        "meta": {
+          "query": {
+            "representation": "/structures?filter=(nelements%20=%202)%20AND%20(elements%20HAS%20ANY%20%22Ga%22,%20%22In%22,%20%22Al%22)%20AND%20(elements%20HAS%20ANY%20%22As%22,%20%22P%22,%20%22N%22)%20AND%20(NOT%20elements%20HAS%20%22Pb%22)"
+          },
+          "api_version": "1.2.0",
+          "more_data_available": false,
+          "schema": "https://schemas.optimade.org/openapi/v1.2.0/optimade.json",
+          "time_stamp": "2025-08-01T01:10:41.283928",
+          "data_returned": 0,
+          "provider": {
+            "name": "Example provider",
+            "description": "Provider used for examples, not to be assigned to a real database",
+            "prefix": "exmpl",
+            "homepage": "https://example.com/"
+          },
+          "data_available": 17,
+          "request_delay": 0.1,
+          "implementation": {
+            "name": "Example implementation",
+            "version": "1.2.4",
+            "source_url": "https://github.com/Materials-Consortia/optimade-python-tools",
+            "maintainer": {
+              "email": "test@test.org"
+            },
+            "issue_tracker": "https://github.com/Materials-Consortia/optimade-python-tools/issues"
+          }
+        }
+      },
+      "https://optimade.odbx.science": {
+        "data": [],
+        "errors": [],
+        "links": {
+          "next": null,
+          "prev": null
+        },
+        "included": [],
+        "meta": {
+          "query": {
+            "representation": "/structures?filter=(nelements%20=%202)%20AND%20(elements%20HAS%20ANY%20%22Ga%22,%20%22In%22,%20%22Al%22)%20AND%20(elements%20HAS%20ANY%20%22As%22,%20%22P%22,%20%22N%22)%20AND%20(NOT%20elements%20HAS%20%22Pb%22)"
+          },
+          "api_version": "1.1.0",
+          "more_data_available": false,
+          "schema": "https://schemas.optimade.org/openapi/v1.1.0/optimade.json",
+          "time_stamp": "2025-08-01T01:10:42.572324",
+          "data_returned": 0,
+          "provider": {
+            "name": "Open Database of Xtals",
+            "description": "The Open Database of Xtals is run by the group of Dr Andrew Morris at the universities of Birmingham and Cambridge and is constructed using the matador library.",
+            "prefix": "odbx",
+            "homepage": "https://odbx.science/"
+          },
+          "data_available": 56,
+          "implementation": {
+            "name": "optimade-python-tools (modified for odbx.science)",
+            "version": "0.1",
+            "source_url": "https://github.com/ml-evs/odbx.science",
+            "maintainer": {
+              "email": "web@odbx.science"
+            },
+            "issue_tracker": "https://github.com/ml-evs/odbx.science/issues"
+          }
+        }
+      },
+      "https://www.crystallography.net/cod/optimade": {
+        "data": [
+          {
+            "attributes": {
+              "_cod_Z": "4",
+              "_cod_Zprime": 0.0416667,
+              "_cod_a": 5.861,
+              "_cod_alpha": 90,
+              "_cod_authors": "Iandelli, A",
+              "_cod_b": 5.861,
+              "_cod_beta": 90,
+              "_cod_c": 5.861,
+              "_cod_calcformula": "- In P -",
+              "_cod_cellformula": "- In4 P4 -",
+              "_cod_chemname": "Indium phosphide",
+              "_cod_date": "2020-10-21",
+              "_cod_file": "1010146",
+              "_cod_firstpage": "58",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- In P -",
+              "_cod_gamma": 90,
+              "_cod_journal": "Gazzetta Chimica Italiana",
+              "_cod_lastpage": "62",
+              "_cod_nel": "2",
+              "_cod_sg": "F -4 3 m",
+              "_cod_sgHall": "F -4 2 3",
+              "_cod_sgNumber": "216",
+              "_cod_svnrevision": "130149",
+              "_cod_text": "Iandelli, A\nSulla struttura dei composti In P, In As e In Sb\nGazzetta Chimica Italiana\n70\n(1940)\n58-62",
+              "_cod_time": "18:00:00",
+              "_cod_title": "Sulla struttura dei composti In P, In As e In Sb",
+              "_cod_vol": 201.3,
+              "_cod_volume": "70",
+              "_cod_year": "1940",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "InP",
+              "chemical_formula_hill": "InP",
+              "chemical_formula_reduced": "InP",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "In",
+                "P"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2020-10-21T18:00:00Z",
+              "lattice_vectors": [
+                [
+                  5.861,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  5.861,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  5.861
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "1010146",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/1010146"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "1010146",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "2",
+              "_cod_Zprime": 0.166667,
+              "_cod_a": 3.18,
+              "_cod_alpha": 90,
+              "_cod_authors": "Juza, R; Hahn, H",
+              "_cod_b": 3.18,
+              "_cod_beta": 90,
+              "_cod_c": 5.166,
+              "_cod_calcformula": "- Ga N -",
+              "_cod_cellformula": "- Ga2 N2 -",
+              "_cod_chemname": "Gallium nitride",
+              "_cod_date": "2020-10-21",
+              "_cod_doi": "10.1002/zaac.19382390307",
+              "_cod_file": "1010168",
+              "_cod_firstpage": "282",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- Ga N -",
+              "_cod_gamma": 120,
+              "_cod_journal": "Zeitschrift fuer Anorganische und Allgemeine Chemie",
+              "_cod_lastpage": "287",
+              "_cod_nel": "2",
+              "_cod_sg": "P 63 m c",
+              "_cod_sgHall": "P 6c -2c",
+              "_cod_sgNumber": "186",
+              "_cod_siga": 0.004,
+              "_cod_sigb": 0.004,
+              "_cod_sigc": 0.005,
+              "_cod_svnrevision": "130149",
+              "_cod_text": "Juza, R; Hahn, H\nUeber die Kristallstrukturen von Cu~3~ N, Ga N und In N\nZeitschrift fuer Anorganische und Allgemeine Chemie\n239\n(1938)\n282-287",
+              "_cod_time": "18:00:00",
+              "_cod_title": "Ueber die Kristallstrukturen von Cu~3~ N, Ga N und In N",
+              "_cod_vol": 45.2,
+              "_cod_volume": "239",
+              "_cod_year": "1938",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "GaN",
+              "chemical_formula_hill": "GaN",
+              "chemical_formula_reduced": "GaN",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "Ga",
+                "N"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2020-10-21T18:00:00Z",
+              "lattice_vectors": [
+                [
+                  3.18,
+                  0,
+                  0
+                ],
+                [
+                  -1.59,
+                  2.75396078403452,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  5.166
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "1010168",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/1010168"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "1010168",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "2",
+              "_cod_Zprime": 0.166667,
+              "_cod_a": 3.533,
+              "_cod_alpha": 90,
+              "_cod_authors": "Juza, R; Hahn, H",
+              "_cod_b": 3.533,
+              "_cod_beta": 90,
+              "_cod_c": 5.693,
+              "_cod_calcformula": "- In N -",
+              "_cod_cellformula": "- In2 N2 -",
+              "_cod_chemname": "Indium nitride",
+              "_cod_date": "2020-10-21",
+              "_cod_doi": "10.1002/zaac.19382390307",
+              "_cod_file": "1010169",
+              "_cod_firstpage": "282",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- In N -",
+              "_cod_gamma": 120,
+              "_cod_journal": "Zeitschrift fuer Anorganische und Allgemeine Chemie",
+              "_cod_lastpage": "287",
+              "_cod_nel": "2",
+              "_cod_sg": "P 63 m c",
+              "_cod_sgHall": "P 6c -2c",
+              "_cod_sgNumber": "186",
+              "_cod_siga": 0.004,
+              "_cod_sigb": 0.004,
+              "_cod_sigc": 0.004,
+              "_cod_svnrevision": "130149",
+              "_cod_text": "Juza, R; Hahn, H\nUeber die Kristallstrukturen von Cu~3~ N, Ga N und In N\nZeitschrift fuer Anorganische und Allgemeine Chemie\n239\n(1938)\n282-287",
+              "_cod_time": "18:00:00",
+              "_cod_title": "Ueber die Kristallstrukturen von Cu~3~ N, Ga N und In N",
+              "_cod_vol": 61.5,
+              "_cod_volume": "239",
+              "_cod_year": "1938",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "InN",
+              "chemical_formula_hill": "InN",
+              "chemical_formula_reduced": "InN",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "In",
+                "N"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2020-10-21T18:00:00Z",
+              "lattice_vectors": [
+                [
+                  3.533,
+                  0,
+                  0
+                ],
+                [
+                  -1.7665,
+                  3.05966775157042,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  5.693
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "1010169",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/1010169"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "1010169",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "2",
+              "_cod_Zprime": 0.166667,
+              "_cod_a": 3.113,
+              "_cod_alpha": 90,
+              "_cod_authors": "Ott, H",
+              "_cod_b": 3.113,
+              "_cod_beta": 90,
+              "_cod_c": 4.981,
+              "_cod_calcformula": "- Al N -",
+              "_cod_cellformula": "- Al2 N2 -",
+              "_cod_chemname": "Aluminium nitride",
+              "_cod_date": "2020-10-21",
+              "_cod_doi": "10.1007/BF01328124",
+              "_cod_file": "1010514",
+              "_cod_firstpage": "201",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- Al N -",
+              "_cod_gamma": 120,
+              "_cod_journal": "Zeitschrift fuer Physik",
+              "_cod_lastpage": "214",
+              "_cod_nel": "2",
+              "_cod_sg": "P 63 m c",
+              "_cod_sgHall": "P 6c -2c",
+              "_cod_sgNumber": "186",
+              "_cod_svnrevision": "130149",
+              "_cod_text": "Ott, H\nDas Gitter des Aluminiumnitrids (Al N).\nZeitschrift fuer Physik\n22\n(1924)\n201-214",
+              "_cod_time": "18:00:00",
+              "_cod_title": "Das Gitter des Aluminiumnitrids (Al N).",
+              "_cod_vol": 41.8,
+              "_cod_volume": "22",
+              "_cod_year": "1924",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "AlN",
+              "chemical_formula_hill": "AlN",
+              "chemical_formula_reduced": "AlN",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "Al",
+                "N"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2020-10-21T18:00:00Z",
+              "lattice_vectors": [
+                [
+                  3.113,
+                  0,
+                  0
+                ],
+                [
+                  -1.5565,
+                  2.69593708198096,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  4.981
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "1010514",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/1010514"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "1010514",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "4",
+              "_cod_Zprime": 0.0416667,
+              "_cod_a": 5.42,
+              "_cod_alpha": 90,
+              "_cod_authors": "Passerini, L",
+              "_cod_b": 5.42,
+              "_cod_beta": 90,
+              "_cod_c": 5.42,
+              "_cod_calcformula": "- Al P -",
+              "_cod_cellformula": "- Al4 P4 -",
+              "_cod_chemname": "Aluminium phosphide",
+              "_cod_date": "2020-10-21",
+              "_cod_file": "1011301",
+              "_cod_firstpage": "655",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- Al P -",
+              "_cod_gamma": 90,
+              "_cod_journal": "Gazzetta Chimica Italiana",
+              "_cod_lastpage": "664",
+              "_cod_nel": "2",
+              "_cod_sg": "F -4 3 m",
+              "_cod_sgHall": "F -4 2 3",
+              "_cod_sgNumber": "216",
+              "_cod_svnrevision": "130149",
+              "_cod_text": "Passerini, L\nStruttura cristallina di alcuni fosfuri di metalli bivalenti e trivalenti\nGazzetta Chimica Italiana\n58\n(1928)\n655-664",
+              "_cod_time": "18:00:00",
+              "_cod_title": "Struttura cristallina di alcuni fosfuri di metalli bivalenti e trivalenti",
+              "_cod_vol": 159.2,
+              "_cod_volume": "58",
+              "_cod_year": "1928",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "AlP",
+              "chemical_formula_hill": "AlP",
+              "chemical_formula_reduced": "AlP",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "Al",
+                "P"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2020-10-21T18:00:00Z",
+              "lattice_vectors": [
+                [
+                  5.42,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  5.42,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  5.42
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "1011301",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/1011301"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "1011301",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "4",
+              "_cod_Zprime": 0.0416667,
+              "_cod_a": 6.036,
+              "_cod_alpha": 90,
+              "_cod_authors": "Iandelli, A",
+              "_cod_b": 6.036,
+              "_cod_beta": 90,
+              "_cod_c": 6.036,
+              "_cod_calcformula": "- As In -",
+              "_cod_cellformula": "- As4 In4 -",
+              "_cod_chemname": "Indium arsenide",
+              "_cod_date": "2020-10-21",
+              "_cod_file": "1011353",
+              "_cod_firstpage": "58",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- As In -",
+              "_cod_gamma": 90,
+              "_cod_journal": "Gazzetta Chimica Italiana",
+              "_cod_lastpage": "62",
+              "_cod_nel": "2",
+              "_cod_sg": "F -4 3 m",
+              "_cod_sgHall": "F -4 2 3",
+              "_cod_sgNumber": "216",
+              "_cod_svnrevision": "130149",
+              "_cod_text": "Iandelli, A\nSulla struttura dei composti In P, In As e In Sb\nGazzetta Chimica Italiana\n70\n(1940)\n58-62",
+              "_cod_time": "18:00:00",
+              "_cod_title": "Sulla struttura dei composti In P, In As e In Sb",
+              "_cod_vol": 219.9,
+              "_cod_volume": "70",
+              "_cod_year": "1940",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "AsIn",
+              "chemical_formula_hill": "AsIn",
+              "chemical_formula_reduced": "AsIn",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "As",
+                "In"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2020-10-21T18:00:00Z",
+              "lattice_vectors": [
+                [
+                  6.036,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  6.036,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  6.036
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "1011353",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/1011353"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "1011353",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "4",
+              "_cod_Zprime": 0.0208333,
+              "_cod_a": 3.956,
+              "_cod_alpha": 90,
+              "_cod_authors": "Xia, Q.; Xia, H.; Ruoff, A.L.",
+              "_cod_b": 3.956,
+              "_cod_beta": 90,
+              "_cod_c": 3.956,
+              "_cod_calcformula": "- Al N -",
+              "_cod_cellformula": "- Al4 N4 -",
+              "_cod_date": "2020-10-21",
+              "_cod_file": "1523095",
+              "_cod_firstpage": "8198",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- Al N -",
+              "_cod_gamma": 90,
+              "_cod_journal": "Journal of Applied Physics",
+              "_cod_lastpage": "8200",
+              "_cod_nel": "2",
+              "_cod_sg": "F m -3 m",
+              "_cod_sgHall": "-F 4 2 3",
+              "_cod_sgNumber": "225",
+              "_cod_svnrevision": "211196",
+              "_cod_text": "Xia, Q.; Xia, H.; Ruoff, A.L.\nPressure-induced rocksalt phase of aluminum nitride: A metastable phase at ambient conditions\nJournal of Applied Physics\n73\n(1993)\n8198-8200",
+              "_cod_time": "18:00:00",
+              "_cod_title": "Pressure-induced rocksalt phase of aluminum nitride: A metastable phase at ambient conditions",
+              "_cod_vol": 61.911,
+              "_cod_volume": "73",
+              "_cod_year": "1993",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "AlN",
+              "chemical_formula_hill": "AlN",
+              "chemical_formula_reduced": "AlN",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "Al",
+                "N"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2020-10-21T18:00:00Z",
+              "lattice_vectors": [
+                [
+                  3.956,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  3.956,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  3.956
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "1523095",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/1523095"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "1523095",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "4",
+              "_cod_Zprime": 0.0416667,
+              "_cod_a": 6.058,
+              "_cod_alpha": 90,
+              "_cod_authors": "Massidda, S.; Continenza, A.; Freeman, A.J.; de Pascale, T.M.; Meloni, F.; Serra, M.",
+              "_cod_b": 6.058,
+              "_cod_beta": 90,
+              "_cod_c": 6.058,
+              "_cod_calcformula": "- As In -",
+              "_cod_cellformula": "- As4 In4 -",
+              "_cod_chemname": "In As",
+              "_cod_date": "2020-10-21",
+              "_cod_file": "1535065",
+              "_cod_firstpage": "12079",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- As In -",
+              "_cod_gamma": 90,
+              "_cod_journal": "Physical Review, Serie 3. B - Condensed Matter (18,1978-)",
+              "_cod_lastpage": "12085",
+              "_cod_nel": "2",
+              "_cod_sg": "F -4 3 m",
+              "_cod_sgHall": "F -4 2 3",
+              "_cod_sgNumber": "216",
+              "_cod_svnrevision": "176429",
+              "_cod_text": "Massidda, S.; Continenza, A.; Freeman, A.J.; de Pascale, T.M.; Meloni, F.; Serra, M.\nStructural and electronic properties of narrow-band-gap semiconductors: In P, In As, and In Sb\nPhysical Review, Serie 3. B - Condensed Matter (18,1978-)\n41\n(1990)\n12079-12085",
+              "_cod_time": "18:00:00",
+              "_cod_title": "Structural and electronic properties of narrow-band-gap semiconductors: In P, In As, and In Sb",
+              "_cod_vol": 222.325,
+              "_cod_volume": "41",
+              "_cod_year": "1990",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "AsIn",
+              "chemical_formula_hill": "AsIn",
+              "chemical_formula_reduced": "AsIn",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "As",
+                "In"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2020-10-21T18:00:00Z",
+              "lattice_vectors": [
+                [
+                  6.058,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  6.058,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  6.058
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "1535065",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/1535065"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "1535065",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "2",
+              "_cod_Zprime": 0.166667,
+              "_cod_a": 3.144,
+              "_cod_alpha": 90,
+              "_cod_authors": "Miwa, K.; Fukumoto, A.",
+              "_cod_b": 3.144,
+              "_cod_beta": 90,
+              "_cod_c": 5.046,
+              "_cod_calcformula": "- Al N -",
+              "_cod_cellformula": "- Al2 N2 -",
+              "_cod_date": "2020-10-21",
+              "_cod_file": "1535440",
+              "_cod_firstpage": "7897",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- Al N -",
+              "_cod_gamma": 120,
+              "_cod_journal": "Physical Review, Serie 3. B - Condensed Matter (18,1978-)",
+              "_cod_lastpage": "7902",
+              "_cod_nel": "2",
+              "_cod_sg": "P 63 m c",
+              "_cod_sgHall": "P 6c -2c",
+              "_cod_sgNumber": "186",
+              "_cod_svnrevision": "211196",
+              "_cod_text": "Miwa, K.; Fukumoto, A.\nFirst-principles calculation of the structural, electronic, and vibrational properties of gallium nitride and aluminum aluminum nitride\nPhysical Review, Serie 3. B - Condensed Matter (18,1978-)\n48\n(1993)\n7897-7902",
+              "_cod_time": "18:00:00",
+              "_cod_title": "First-principles calculation of the structural, electronic, and vibrational properties of gallium nitride and aluminum aluminum nitride",
+              "_cod_vol": 43.196,
+              "_cod_volume": "48",
+              "_cod_year": "1993",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "AlN",
+              "chemical_formula_hill": "AlN",
+              "chemical_formula_reduced": "AlN",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "Al",
+                "N"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2020-10-21T18:00:00Z",
+              "lattice_vectors": [
+                [
+                  3.144,
+                  0,
+                  0
+                ],
+                [
+                  -1.572,
+                  2.72278386949828,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  5.046
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "1535440",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/1535440"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "1535440",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "2",
+              "_cod_Zprime": 0.166667,
+              "_cod_a": 3.146,
+              "_cod_alpha": 90,
+              "_cod_authors": "Miwa, K.; Fukumoto, A.",
+              "_cod_b": 3.146,
+              "_cod_beta": 90,
+              "_cod_c": 5.125,
+              "_cod_calcformula": "- Ga N -",
+              "_cod_cellformula": "- Ga2 N2 -",
+              "_cod_date": "2020-10-21",
+              "_cod_file": "1535443",
+              "_cod_firstpage": "7897",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- Ga N -",
+              "_cod_gamma": 120,
+              "_cod_journal": "Physical Review, Serie 3. B - Condensed Matter (18,1978-)",
+              "_cod_lastpage": "7902",
+              "_cod_nel": "2",
+              "_cod_sg": "P 63 m c",
+              "_cod_sgHall": "P 6c -2c",
+              "_cod_sgNumber": "186",
+              "_cod_svnrevision": "211196",
+              "_cod_text": "Miwa, K.; Fukumoto, A.\nFirst-principles calculation of the structural, electronic, and vibrational properties of gallium nitride and aluminum aluminum nitride\nPhysical Review, Serie 3. B - Condensed Matter (18,1978-)\n48\n(1993)\n7897-7902",
+              "_cod_time": "18:00:00",
+              "_cod_title": "First-principles calculation of the structural, electronic, and vibrational properties of gallium nitride and aluminum aluminum nitride",
+              "_cod_vol": 43.928,
+              "_cod_volume": "48",
+              "_cod_year": "1993",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "GaN",
+              "chemical_formula_hill": "GaN",
+              "chemical_formula_reduced": "GaN",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "Ga",
+                "N"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2020-10-21T18:00:00Z",
+              "lattice_vectors": [
+                [
+                  3.146,
+                  0,
+                  0
+                ],
+                [
+                  -1.573,
+                  2.72451592030584,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  5.125
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "1535443",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/1535443"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "1535443",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "4",
+              "_cod_Zprime": 0.0208333,
+              "_cod_a": 3.938,
+              "_cod_alpha": 90,
+              "_cod_authors": "Christensen, N.E.; Gorczyca, I.",
+              "_cod_b": 3.938,
+              "_cod_beta": 90,
+              "_cod_c": 3.938,
+              "_cod_calcformula": "- Al N -",
+              "_cod_cellformula": "- Al4 N4 -",
+              "_cod_date": "2020-10-21",
+              "_cod_file": "1536047",
+              "_cod_firstpage": "4307",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- Al N -",
+              "_cod_gamma": 90,
+              "_cod_journal": "Physical Review, Serie 3. B - Condensed Matter (18,1978-)",
+              "_cod_lastpage": "4314",
+              "_cod_nel": "2",
+              "_cod_sg": "F m -3 m",
+              "_cod_sgHall": "-F 4 2 3",
+              "_cod_sgNumber": "225",
+              "_cod_svnrevision": "211196",
+              "_cod_text": "Christensen, N.E.; Gorczyca, I.\nCalculated phase transitions of aluminum nitride under pressure\nPhysical Review, Serie 3. B - Condensed Matter (18,1978-)\n47\n(1993)\n4307-4314",
+              "_cod_time": "18:00:00",
+              "_cod_title": "Calculated phase transitions of aluminum nitride under pressure",
+              "_cod_vol": 61.07,
+              "_cod_volume": "47",
+              "_cod_year": "1993",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "AlN",
+              "chemical_formula_hill": "AlN",
+              "chemical_formula_reduced": "AlN",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "Al",
+                "N"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2020-10-21T18:00:00Z",
+              "lattice_vectors": [
+                [
+                  3.938,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  3.938,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  3.938
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "1536047",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/1536047"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "1536047",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "6",
+              "_cod_Zprime": 0.166667,
+              "_cod_a": 7.449,
+              "_cod_alpha": 90,
+              "_cod_authors": "Kinomura, N.; Terao, K.; Kikkawa, S.; Koizumi, M.; Horiuchi, H.",
+              "_cod_b": 7.449,
+              "_cod_beta": 90,
+              "_cod_c": 9.885,
+              "_cod_calcformula": "- In P3 -",
+              "_cod_cellformula": "- In6 P18 -",
+              "_cod_date": "2020-10-21",
+              "_cod_file": "1536650",
+              "_cod_firstpage": "53",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- In P3 -",
+              "_cod_gamma": 120,
+              "_cod_journal": "Materials Research Bulletin",
+              "_cod_lastpage": "57",
+              "_cod_nel": "2",
+              "_cod_sg": "R -3 m :H",
+              "_cod_sgHall": "-R 3 2\"",
+              "_cod_sgNumber": "166",
+              "_cod_svnrevision": "211196",
+              "_cod_text": "Kinomura, N.; Terao, K.; Kikkawa, S.; Koizumi, M.; Horiuchi, H.\nSynthesis and Crystal Structure of In P3\nMaterials Research Bulletin\n18\n(1983)\n53-57",
+              "_cod_time": "18:00:00",
+              "_cod_title": "Synthesis and Crystal Structure of In P3",
+              "_cod_vol": 475.011,
+              "_cod_volume": "18",
+              "_cod_year": "1983",
+              "chemical_formula_anonymous": "A3B",
+              "chemical_formula_descriptive": "InP3",
+              "chemical_formula_hill": "InP3",
+              "chemical_formula_reduced": "InP3",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "In",
+                "P"
+              ],
+              "elements_ratios": [
+                0.25,
+                0.75
+              ],
+              "last_modified": "2020-10-21T18:00:00Z",
+              "lattice_vectors": [
+                [
+                  7.449,
+                  0,
+                  0
+                ],
+                [
+                  -3.7245,
+                  6.45102323279028,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  9.885
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "1536650",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/1536650"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "1536650",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "4",
+              "_cod_Zprime": 0.0208333,
+              "_cod_a": 3.985,
+              "_cod_alpha": 90,
+              "_cod_authors": "Falter, C.; Klenner, M.; Chen, Q.",
+              "_cod_b": 3.985,
+              "_cod_beta": 90,
+              "_cod_c": 3.985,
+              "_cod_calcformula": "- Ga N -",
+              "_cod_cellformula": "- Ga4 N4 -",
+              "_cod_date": "2020-10-21",
+              "_cod_file": "1536825",
+              "_cod_firstpage": "16690",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- Ga N -",
+              "_cod_gamma": 90,
+              "_cod_journal": "Physical Review, Serie 3. B - Condensed Matter (18,1978-)",
+              "_cod_lastpage": "16706",
+              "_cod_nel": "2",
+              "_cod_sg": "F m -3 m",
+              "_cod_sgHall": "-F 4 2 3",
+              "_cod_sgNumber": "225",
+              "_cod_svnrevision": "211196",
+              "_cod_text": "Falter, C.; Klenner, M.; Chen, Q.\nRole of bonding, reduced screening, and structure in the hightemperature superconductors\nPhysical Review, Serie 3. B - Condensed Matter (18,1978-)\n48\n(1993)\n16690-16706",
+              "_cod_time": "18:00:00",
+              "_cod_title": "Role of bonding, reduced screening, and structure in the hightemperature superconductors",
+              "_cod_vol": 63.283,
+              "_cod_volume": "48",
+              "_cod_year": "1993",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "GaN",
+              "chemical_formula_hill": "GaN",
+              "chemical_formula_reduced": "GaN",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "Ga",
+                "N"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2020-10-21T18:00:00Z",
+              "lattice_vectors": [
+                [
+                  3.985,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  3.985,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  3.985
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "1536825",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/1536825"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "1536825",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "4",
+              "_cod_Zprime": 0.0208333,
+              "_cod_a": 4.532,
+              "_cod_alpha": 90,
+              "_cod_authors": "Falter, C.; Klenner, M.; Chen, Q.",
+              "_cod_b": 4.532,
+              "_cod_beta": 90,
+              "_cod_c": 4.532,
+              "_cod_calcformula": "- In N -",
+              "_cod_cellformula": "- In4 N4 -",
+              "_cod_date": "2020-10-21",
+              "_cod_file": "1536828",
+              "_cod_firstpage": "16690",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- In N -",
+              "_cod_gamma": 90,
+              "_cod_journal": "Physical Review, Serie 3. B - Condensed Matter (18,1978-)",
+              "_cod_lastpage": "16706",
+              "_cod_nel": "2",
+              "_cod_sg": "F m -3 m",
+              "_cod_sgHall": "-F 4 2 3",
+              "_cod_sgNumber": "225",
+              "_cod_svnrevision": "211196",
+              "_cod_text": "Falter, C.; Klenner, M.; Chen, Q.\nRole of bonding, reduced screening, and structure in the hightemperature superconductors\nPhysical Review, Serie 3. B - Condensed Matter (18,1978-)\n48\n(1993)\n16690-16706",
+              "_cod_time": "18:00:00",
+              "_cod_title": "Role of bonding, reduced screening, and structure in the hightemperature superconductors",
+              "_cod_vol": 93.083,
+              "_cod_volume": "48",
+              "_cod_year": "1993",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "InN",
+              "chemical_formula_hill": "InN",
+              "chemical_formula_reduced": "InN",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "In",
+                "N"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2020-10-21T18:00:00Z",
+              "lattice_vectors": [
+                [
+                  4.532,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  4.532,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  4.532
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "1536828",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/1536828"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "1536828",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "4",
+              "_cod_Zprime": 0.0416667,
+              "_cod_a": 6.048,
+              "_cod_alpha": 90,
+              "_cod_authors": "Iandelli, A.",
+              "_cod_b": 6.048,
+              "_cod_beta": 90,
+              "_cod_c": 6.048,
+              "_cod_calcformula": "- As In -",
+              "_cod_cellformula": "- As4 In4 -",
+              "_cod_chemname": "In As",
+              "_cod_date": "2020-10-21",
+              "_cod_file": "1537448",
+              "_cod_firstpage": "58",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- As In -",
+              "_cod_gamma": 90,
+              "_cod_journal": "Gazzetta Chimica Italiana",
+              "_cod_lastpage": "62",
+              "_cod_nel": "2",
+              "_cod_sg": "F -4 3 m",
+              "_cod_sgHall": "F -4 2 3",
+              "_cod_sgNumber": "216",
+              "_cod_svnrevision": "176429",
+              "_cod_text": "Iandelli, A.\nSulla struttura dei composti In P, In As e In Sb\nGazzetta Chimica Italiana\n71\n(1941)\n58-62",
+              "_cod_time": "18:00:00",
+              "_cod_title": "Sulla struttura dei composti In P, In As e In Sb",
+              "_cod_vol": 221.226,
+              "_cod_volume": "71",
+              "_cod_year": "1941",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "AsIn",
+              "chemical_formula_hill": "AsIn",
+              "chemical_formula_reduced": "AsIn",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "As",
+                "In"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2020-10-21T18:00:00Z",
+              "lattice_vectors": [
+                [
+                  6.048,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  6.048,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  6.048
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "1537448",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/1537448"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "1537448",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "4",
+              "_cod_Zprime": 0.0416667,
+              "_cod_a": 5.85,
+              "_cod_alpha": 90,
+              "_cod_authors": "Egorov, L.A.; Torbova, O.D.",
+              "_cod_b": 5.85,
+              "_cod_beta": 90,
+              "_cod_c": 5.85,
+              "_cod_calcformula": "- In P -",
+              "_cod_cellformula": "- In4 P4 -",
+              "_cod_date": "2020-10-21",
+              "_cod_file": "1537857",
+              "_cod_firstpage": "144",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- In P -",
+              "_cod_gamma": 90,
+              "_cod_journal": "Inorganic Materials (USSR) (see: Izv.Akad.Nauk, Neorg.Mater.)",
+              "_cod_lastpage": "145",
+              "_cod_nel": "2",
+              "_cod_sg": "F -4 3 m",
+              "_cod_sgHall": "F -4 2 3",
+              "_cod_sgNumber": "216",
+              "_cod_svnrevision": "211196",
+              "_cod_text": "Egorov, L.A.; Torbova, O.D.\nCrystallization of solid solutions of In As1-x Px from the gas phase\nInorganic Materials (USSR) (see: Izv.Akad.Nauk, Neorg.Mater.)\n5\n(1969)\n144-145",
+              "_cod_time": "18:00:00",
+              "_cod_title": "Crystallization of solid solutions of In As1-x Px from the gas phase",
+              "_cod_vol": 200.202,
+              "_cod_volume": "5",
+              "_cod_year": "1969",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "InP",
+              "chemical_formula_hill": "InP",
+              "chemical_formula_reduced": "InP",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "In",
+                "P"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2020-10-21T18:00:00Z",
+              "lattice_vectors": [
+                [
+                  5.85,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  5.85,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  5.85
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "1537857",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/1537857"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "1537857",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "4",
+              "_cod_Zprime": 0.0208333,
+              "_cod_a": 5.71,
+              "_cod_alpha": 90,
+              "_cod_authors": "Jamieson, J.C.",
+              "_cod_b": 5.71,
+              "_cod_beta": 90,
+              "_cod_c": 5.71,
+              "_cod_calcformula": "- In P -",
+              "_cod_cellformula": "- In4 P4 -",
+              "_cod_date": "2020-10-21",
+              "_cod_file": "1538565",
+              "_cod_firstpage": "845",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- In P -",
+              "_cod_gamma": 90,
+              "_cod_journal": "Science",
+              "_cod_lastpage": "847",
+              "_cod_nel": "2",
+              "_cod_sg": "F m -3 m",
+              "_cod_sgHall": "-F 4 2 3",
+              "_cod_sgNumber": "225",
+              "_cod_svnrevision": "211196",
+              "_cod_text": "Jamieson, J.C.\nCrystal structures at high pressures of metallic modifications of compounds of indium, gallium, and aluminum\nScience\n139\n(1963)\n845-847",
+              "_cod_time": "18:00:00",
+              "_cod_title": "Crystal structures at high pressures of metallic modifications of compounds of indium, gallium, and aluminum",
+              "_cod_vol": 186.169,
+              "_cod_volume": "139",
+              "_cod_year": "1963",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "InP",
+              "chemical_formula_hill": "InP",
+              "chemical_formula_reduced": "InP",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "In",
+                "P"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2020-10-21T18:00:00Z",
+              "lattice_vectors": [
+                [
+                  5.71,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  5.71,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  5.71
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "1538565",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/1538565"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "1538565",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "4",
+              "_cod_Zprime": 0.0416667,
+              "_cod_a": 5.88,
+              "_cod_alpha": 90,
+              "_cod_authors": "Koester, W.; Ulrich, W.",
+              "_cod_b": 5.88,
+              "_cod_beta": 90,
+              "_cod_c": 5.88,
+              "_cod_calcformula": "- In P -",
+              "_cod_cellformula": "- In4 P4 -",
+              "_cod_date": "2020-10-21",
+              "_cod_file": "1538801",
+              "_cod_firstpage": "365",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- In P -",
+              "_cod_gamma": 90,
+              "_cod_journal": "Zeitschrift fuer Metallkunde",
+              "_cod_lastpage": "367",
+              "_cod_nel": "2",
+              "_cod_sg": "F -4 3 m",
+              "_cod_sgHall": "F -4 2 3",
+              "_cod_sgNumber": "216",
+              "_cod_svnrevision": "211196",
+              "_cod_text": "Koester, W.; Ulrich, W.\nZur Isomorphie der Verbindungen des Typs A(III) B(V)\nZeitschrift fuer Metallkunde\n49\n(1958)\n365-367",
+              "_cod_time": "18:00:00",
+              "_cod_title": "Zur Isomorphie der Verbindungen des Typs A(III) B(V)",
+              "_cod_vol": 203.297,
+              "_cod_volume": "49",
+              "_cod_year": "1958",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "InP",
+              "chemical_formula_hill": "InP",
+              "chemical_formula_reduced": "InP",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "In",
+                "P"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2020-10-21T18:00:00Z",
+              "lattice_vectors": [
+                [
+                  5.88,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  5.88,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  5.88
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "1538801",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/1538801"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "1538801",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "4",
+              "_cod_Zprime": 0.0416667,
+              "_cod_a": 5.6608,
+              "_cod_alpha": 90,
+              "_cod_authors": "Leszczynski, M.; Ciepielewska, A.; Micovic, M.; Mendonca, C.A.C.; Ciepielewski, P.",
+              "_cod_b": 5.6608,
+              "_cod_beta": 90,
+              "_cod_c": 5.6608,
+              "_cod_calcformula": "- Al As -",
+              "_cod_cellformula": "- Al4 As4 -",
+              "_cod_date": "2020-10-21",
+              "_cod_file": "1540257",
+              "_cod_firstpage": "97",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- Al As -",
+              "_cod_gamma": 90,
+              "_cod_journal": "Crystal Research and Technology",
+              "_cod_lastpage": "100",
+              "_cod_nel": "2",
+              "_cod_sg": "F -4 3 m",
+              "_cod_sgHall": "F -4 2 3",
+              "_cod_sgNumber": "216",
+              "_cod_svnrevision": "211196",
+              "_cod_text": "Leszczynski, M.; Ciepielewska, A.; Micovic, M.; Mendonca, C.A.C.; Ciepielewski, P.\nLattice constant of Al As\nCrystal Research and Technology\n27\n(1992)\n97-100",
+              "_cod_time": "18:00:00",
+              "_cod_title": "Lattice constant of Al As",
+              "_cod_vol": 181.398,
+              "_cod_volume": "27",
+              "_cod_year": "1992",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "AlAs",
+              "chemical_formula_hill": "AlAs",
+              "chemical_formula_reduced": "AlAs",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "Al",
+                "As"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2020-10-21T18:00:00Z",
+              "lattice_vectors": [
+                [
+                  5.6608,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  5.6608,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  5.6608
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "1540257",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/1540257"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "1540257",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "2",
+              "_cod_Zprime": 0.166667,
+              "_cod_a": 3.081,
+              "_cod_alpha": 90,
+              "_cod_authors": "Hua Cai; Peipei Liang; Rene Hubner; Shengqiang Zhou; Yanli Li; Jian Sun; Ning Xu; Jiada Wu",
+              "_cod_b": 3.081,
+              "_cod_beta": 90,
+              "_cod_c": 5.031,
+              "_cod_calcformula": "- Al N -",
+              "_cod_cellformula": "- Al2 N2 -",
+              "_cod_chemname": "Aluminum Nitride",
+              "_cod_date": "2020-10-21",
+              "_cod_doi": "10.1039/C5TC00475F",
+              "_cod_file": "7234258",
+              "_cod_firstpage": "5307",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- Al N -",
+              "_cod_gamma": 120,
+              "_cod_journal": "Journal of Materials Chemistry C",
+              "_cod_lastpage": "5315",
+              "_cod_nel": "2",
+              "_cod_sg": "P 63 m c",
+              "_cod_sgHall": "P 6c -2c",
+              "_cod_sgNumber": "186",
+              "_cod_svnrevision": "218956",
+              "_cod_text": "Hua Cai; Peipei Liang; Rene Hubner; Shengqiang Zhou; Yanli Li; Jian Sun; Ning Xu; Jiada Wu\nComposition and bandgap control of AlxGa1-xN films synthesized by plasma-assisted pulsed laser deposition\nJournal of Materials Chemistry C\n3\n(2015)\n5307-5315",
+              "_cod_time": "18:00:00",
+              "_cod_title": "Composition and bandgap control of AlxGa1-xN films synthesized by plasma-assisted pulsed laser deposition",
+              "_cod_vol": 41.359,
+              "_cod_volume": "3",
+              "_cod_year": "2015",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "AlN",
+              "chemical_formula_hill": "AlN",
+              "chemical_formula_reduced": "AlN",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "Al",
+                "N"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2020-10-21T18:00:00Z",
+              "lattice_vectors": [
+                [
+                  3.081,
+                  0,
+                  0
+                ],
+                [
+                  -1.5405,
+                  2.66822426905986,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  5.031
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "7234258",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/7234258"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "7234258",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Rall": 0.0088,
+              "_cod_Z": "2",
+              "_cod_Zprime": 0.166667,
+              "_cod_a": 3.1972,
+              "_cod_alpha": 90,
+              "_cod_authors": "Hua Cai; Peipei Liang; Rene Hubner; Shengqiang Zhou; Yanli Li; Jian Sun; Ning Xu; Jiada Wu",
+              "_cod_b": 3.1972,
+              "_cod_beta": 90,
+              "_cod_c": 5.207,
+              "_cod_calcformula": "- Ga N -",
+              "_cod_cellformula": "- Ga2 N2 -",
+              "_cod_chemname": "Gallium Nitride - Thick Layer",
+              "_cod_date": "2020-10-21",
+              "_cod_doi": "10.1039/C5TC00475F",
+              "_cod_file": "7234259",
+              "_cod_firstpage": "5307",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- Ga N -",
+              "_cod_gamma": 120,
+              "_cod_journal": "Journal of Materials Chemistry C",
+              "_cod_lastpage": "5315",
+              "_cod_nel": "2",
+              "_cod_sg": "P 63 m c",
+              "_cod_sgHall": "P 6c -2c",
+              "_cod_sgNumber": "186",
+              "_cod_siga": 0.0012,
+              "_cod_sigb": 0.0012,
+              "_cod_sigc": 0.003,
+              "_cod_sigvol": 0.04,
+              "_cod_svnrevision": "218956",
+              "_cod_text": "Hua Cai; Peipei Liang; Rene Hubner; Shengqiang Zhou; Yanli Li; Jian Sun; Ning Xu; Jiada Wu\nComposition and bandgap control of AlxGa1-xN films synthesized by plasma-assisted pulsed laser deposition\nJournal of Materials Chemistry C\n3\n(2015)\n5307-5315",
+              "_cod_time": "18:00:00",
+              "_cod_title": "Composition and bandgap control of AlxGa1-xN films synthesized by plasma-assisted pulsed laser deposition",
+              "_cod_vol": 46.1,
+              "_cod_volume": "3",
+              "_cod_year": "2015",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "GaN",
+              "chemical_formula_hill": "GaN",
+              "chemical_formula_reduced": "GaN",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "Ga",
+                "N"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2020-10-21T18:00:00Z",
+              "lattice_vectors": [
+                [
+                  3.1972,
+                  0,
+                  0
+                ],
+                [
+                  -1.5986,
+                  2.76885642097961,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  5.207
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "7234259",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/7234259"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "7234259",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "4",
+              "_cod_Zprime": 0.0416667,
+              "_cod_a": 5.62,
+              "_cod_alpha": 90,
+              "_cod_authors": "Wyckoff, R. W. G.",
+              "_cod_b": 5.62,
+              "_cod_beta": 90,
+              "_cod_c": 5.62,
+              "_cod_calcformula": "- Al As -",
+              "_cod_cellformula": "- Al4 As4 -",
+              "_cod_date": "2024-05-06",
+              "_cod_file": "9008830",
+              "_cod_firstpage": "85",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- Al As -",
+              "_cod_gamma": 90,
+              "_cod_journal": "Crystal Structures",
+              "_cod_lastpage": "237",
+              "_cod_nel": "2",
+              "_cod_sg": "F -4 3 m",
+              "_cod_sgHall": "F -4 2 3",
+              "_cod_sgNumber": "216",
+              "_cod_svnrevision": "291735",
+              "_cod_text": "Wyckoff, R. W. G.\nSecond edition. Interscience Publishers, New York, New York Note: ZnS structure, sphalerite structure\nCrystal Structures\n1\n(1963)\n85-237",
+              "_cod_time": "07:56:00",
+              "_cod_title": "Second edition. Interscience Publishers, New York, New York Note: ZnS structure, sphalerite structure",
+              "_cod_vol": 177.504,
+              "_cod_volume": "1",
+              "_cod_year": "1963",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "AlAs",
+              "chemical_formula_hill": "AlAs",
+              "chemical_formula_reduced": "AlAs",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "Al",
+                "As"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2024-05-06T07:56:00Z",
+              "lattice_vectors": [
+                [
+                  5.62,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  5.62,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  5.62
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "9008830",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/9008830"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "9008830",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "4",
+              "_cod_Zprime": 0.0416667,
+              "_cod_a": 5.451,
+              "_cod_alpha": 90,
+              "_cod_authors": "Wyckoff, R. W. G.",
+              "_cod_b": 5.451,
+              "_cod_beta": 90,
+              "_cod_c": 5.451,
+              "_cod_calcformula": "- Al P -",
+              "_cod_cellformula": "- Al4 P4 -",
+              "_cod_date": "2024-05-06",
+              "_cod_file": "9008831",
+              "_cod_firstpage": "85",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- Al P -",
+              "_cod_gamma": 90,
+              "_cod_journal": "Crystal Structures",
+              "_cod_lastpage": "237",
+              "_cod_nel": "2",
+              "_cod_sg": "F -4 3 m",
+              "_cod_sgHall": "F -4 2 3",
+              "_cod_sgNumber": "216",
+              "_cod_svnrevision": "291735",
+              "_cod_text": "Wyckoff, R. W. G.\nSecond edition. Interscience Publishers, New York, New York Note: ZnS structure, sphalerite structure\nCrystal Structures\n1\n(1963)\n85-237",
+              "_cod_time": "07:56:00",
+              "_cod_title": "Second edition. Interscience Publishers, New York, New York Note: ZnS structure, sphalerite structure",
+              "_cod_vol": 161.968,
+              "_cod_volume": "1",
+              "_cod_year": "1963",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "AlP",
+              "chemical_formula_hill": "AlP",
+              "chemical_formula_reduced": "AlP",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "Al",
+                "P"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2024-05-06T07:56:00Z",
+              "lattice_vectors": [
+                [
+                  5.451,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  5.451,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  5.451
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "9008831",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/9008831"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "9008831",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "4",
+              "_cod_Zprime": 0.0416667,
+              "_cod_a": 5.6537,
+              "_cod_alpha": 90,
+              "_cod_authors": "Wyckoff, R. W. G.",
+              "_cod_b": 5.6537,
+              "_cod_beta": 90,
+              "_cod_c": 5.6537,
+              "_cod_calcformula": "- As Ga -",
+              "_cod_cellformula": "- As4 Ga4 -",
+              "_cod_date": "2024-05-06",
+              "_cod_file": "9008845",
+              "_cod_firstpage": "85",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- As Ga -",
+              "_cod_gamma": 90,
+              "_cod_journal": "Crystal Structures",
+              "_cod_lastpage": "237",
+              "_cod_nel": "2",
+              "_cod_sg": "F -4 3 m",
+              "_cod_sgHall": "F -4 2 3",
+              "_cod_sgNumber": "216",
+              "_cod_svnrevision": "291735",
+              "_cod_text": "Wyckoff, R. W. G.\nSecond edition. Interscience Publishers, New York, New York Note: ZnS structure, sphalerite structure\nCrystal Structures\n1\n(1963)\n85-237",
+              "_cod_time": "07:56:00",
+              "_cod_title": "Second edition. Interscience Publishers, New York, New York Note: ZnS structure, sphalerite structure",
+              "_cod_vol": 180.717,
+              "_cod_volume": "1",
+              "_cod_year": "1963",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "AsGa",
+              "chemical_formula_hill": "AsGa",
+              "chemical_formula_reduced": "AsGa",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "As",
+                "Ga"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2024-05-06T07:56:00Z",
+              "lattice_vectors": [
+                [
+                  5.6537,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  5.6537,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  5.6537
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "9008845",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/9008845"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "9008845",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "4",
+              "_cod_Zprime": 0.0416667,
+              "_cod_a": 5.4505,
+              "_cod_alpha": 90,
+              "_cod_authors": "Wyckoff, R. W. G.",
+              "_cod_b": 5.4505,
+              "_cod_beta": 90,
+              "_cod_c": 5.4505,
+              "_cod_calcformula": "- Ga P -",
+              "_cod_cellformula": "- Ga4 P4 -",
+              "_cod_date": "2024-05-06",
+              "_cod_file": "9008846",
+              "_cod_firstpage": "85",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- Ga P -",
+              "_cod_gamma": 90,
+              "_cod_journal": "Crystal Structures",
+              "_cod_lastpage": "237",
+              "_cod_nel": "2",
+              "_cod_sg": "F -4 3 m",
+              "_cod_sgHall": "F -4 2 3",
+              "_cod_sgNumber": "216",
+              "_cod_svnrevision": "291735",
+              "_cod_text": "Wyckoff, R. W. G.\nSecond edition. Interscience Publishers, New York, New York Note: ZnS structure, sphalerite structure\nCrystal Structures\n1\n(1963)\n85-237",
+              "_cod_time": "07:56:00",
+              "_cod_title": "Second edition. Interscience Publishers, New York, New York Note: ZnS structure, sphalerite structure",
+              "_cod_vol": 161.923,
+              "_cod_volume": "1",
+              "_cod_year": "1963",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "GaP",
+              "chemical_formula_hill": "GaP",
+              "chemical_formula_reduced": "GaP",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "Ga",
+                "P"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2024-05-06T07:56:00Z",
+              "lattice_vectors": [
+                [
+                  5.4505,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  5.4505,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  5.4505
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "9008846",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/9008846"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "9008846",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "4",
+              "_cod_Zprime": 0.0416667,
+              "_cod_a": 6.036,
+              "_cod_alpha": 90,
+              "_cod_authors": "Wyckoff, R. W. G.",
+              "_cod_b": 6.036,
+              "_cod_beta": 90,
+              "_cod_c": 6.036,
+              "_cod_calcformula": "- As In -",
+              "_cod_cellformula": "- As4 In4 -",
+              "_cod_date": "2024-05-06",
+              "_cod_file": "9008851",
+              "_cod_firstpage": "85",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- As In -",
+              "_cod_gamma": 90,
+              "_cod_journal": "Crystal Structures",
+              "_cod_lastpage": "237",
+              "_cod_nel": "2",
+              "_cod_sg": "F -4 3 m",
+              "_cod_sgHall": "F -4 2 3",
+              "_cod_sgNumber": "216",
+              "_cod_svnrevision": "291735",
+              "_cod_text": "Wyckoff, R. W. G.\nSecond edition. Interscience Publishers, New York, New York Note: ZnS structure, sphalerite structure\nCrystal Structures\n1\n(1963)\n85-237",
+              "_cod_time": "07:56:00",
+              "_cod_title": "Second edition. Interscience Publishers, New York, New York Note: ZnS structure, sphalerite structure",
+              "_cod_vol": 219.911,
+              "_cod_volume": "1",
+              "_cod_year": "1963",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "AsIn",
+              "chemical_formula_hill": "AsIn",
+              "chemical_formula_reduced": "AsIn",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "As",
+                "In"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2024-05-06T07:56:00Z",
+              "lattice_vectors": [
+                [
+                  6.036,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  6.036,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  6.036
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "9008851",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/9008851"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "9008851",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "4",
+              "_cod_Zprime": 0.0416667,
+              "_cod_a": 5.8687,
+              "_cod_alpha": 90,
+              "_cod_authors": "Wyckoff, R. W. G.",
+              "_cod_b": 5.8687,
+              "_cod_beta": 90,
+              "_cod_c": 5.8687,
+              "_cod_calcformula": "- In P -",
+              "_cod_cellformula": "- In4 P4 -",
+              "_cod_date": "2024-05-06",
+              "_cod_file": "9008852",
+              "_cod_firstpage": "85",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- In P -",
+              "_cod_gamma": 90,
+              "_cod_journal": "Crystal Structures",
+              "_cod_lastpage": "237",
+              "_cod_nel": "2",
+              "_cod_sg": "F -4 3 m",
+              "_cod_sgHall": "F -4 2 3",
+              "_cod_sgNumber": "216",
+              "_cod_svnrevision": "291735",
+              "_cod_text": "Wyckoff, R. W. G.\nSecond edition. Interscience Publishers, New York, New York Note: ZnS structure, sphalerite structure\nCrystal Structures\n1\n(1963)\n85-237",
+              "_cod_time": "07:56:00",
+              "_cod_title": "Second edition. Interscience Publishers, New York, New York Note: ZnS structure, sphalerite structure",
+              "_cod_vol": 202.128,
+              "_cod_volume": "1",
+              "_cod_year": "1963",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "InP",
+              "chemical_formula_hill": "InP",
+              "chemical_formula_reduced": "InP",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "In",
+                "P"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2024-05-06T07:56:00Z",
+              "lattice_vectors": [
+                [
+                  5.8687,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  5.8687,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  5.8687
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "9008852",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/9008852"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "9008852",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "2",
+              "_cod_Zprime": 0.166667,
+              "_cod_a": 3.111,
+              "_cod_alpha": 90,
+              "_cod_authors": "Wyckoff, R. W. G.",
+              "_cod_b": 3.111,
+              "_cod_beta": 90,
+              "_cod_c": 4.978,
+              "_cod_calcformula": "- Al N -",
+              "_cod_cellformula": "- Al2 N2 -",
+              "_cod_date": "2024-05-06",
+              "_cod_file": "9008860",
+              "_cod_firstpage": "85",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- Al N -",
+              "_cod_gamma": 120,
+              "_cod_journal": "Crystal Structures",
+              "_cod_lastpage": "237",
+              "_cod_nel": "2",
+              "_cod_sg": "P 63 m c",
+              "_cod_sgHall": "P 6c -2c",
+              "_cod_sgNumber": "186",
+              "_cod_svnrevision": "291735",
+              "_cod_text": "Wyckoff, R. W. G.\nSecond edition. Interscience Publishers, New York, New York Note: wurtzite structure\nCrystal Structures\n1\n(1963)\n85-237",
+              "_cod_time": "07:56:00",
+              "_cod_title": "Second edition. Interscience Publishers, New York, New York Note: wurtzite structure",
+              "_cod_vol": 41.724,
+              "_cod_volume": "1",
+              "_cod_year": "1963",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "AlN",
+              "chemical_formula_hill": "AlN",
+              "chemical_formula_reduced": "AlN",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "Al",
+                "N"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2024-05-06T07:56:00Z",
+              "lattice_vectors": [
+                [
+                  3.111,
+                  0,
+                  0
+                ],
+                [
+                  -1.5555,
+                  2.69420503117339,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  4.978
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "9008860",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/9008860"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "9008860",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "2",
+              "_cod_Zprime": 0.166667,
+              "_cod_a": 3.18,
+              "_cod_alpha": 90,
+              "_cod_authors": "Wyckoff, R. W. G.",
+              "_cod_b": 3.18,
+              "_cod_beta": 90,
+              "_cod_c": 5.166,
+              "_cod_calcformula": "- Ga N -",
+              "_cod_cellformula": "- Ga2 N2 -",
+              "_cod_date": "2024-05-06",
+              "_cod_file": "9008868",
+              "_cod_firstpage": "85",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- Ga N -",
+              "_cod_gamma": 120,
+              "_cod_journal": "Crystal Structures",
+              "_cod_lastpage": "237",
+              "_cod_nel": "2",
+              "_cod_sg": "P 63 m c",
+              "_cod_sgHall": "P 6c -2c",
+              "_cod_sgNumber": "186",
+              "_cod_svnrevision": "291735",
+              "_cod_text": "Wyckoff, R. W. G.\nSecond edition. Interscience Publishers, New York, New York Note: wurtzite structure\nCrystal Structures\n1\n(1963)\n85-237",
+              "_cod_time": "07:56:00",
+              "_cod_title": "Second edition. Interscience Publishers, New York, New York Note: wurtzite structure",
+              "_cod_vol": 45.242,
+              "_cod_volume": "1",
+              "_cod_year": "1963",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "GaN",
+              "chemical_formula_hill": "GaN",
+              "chemical_formula_reduced": "GaN",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "Ga",
+                "N"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2024-05-06T07:56:00Z",
+              "lattice_vectors": [
+                [
+                  3.18,
+                  0,
+                  0
+                ],
+                [
+                  -1.59,
+                  2.75396078403452,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  5.166
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "9008868",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/9008868"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "9008868",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "2",
+              "_cod_Zprime": 0.166667,
+              "_cod_a": 3.533,
+              "_cod_alpha": 90,
+              "_cod_authors": "Wyckoff, R. W. G.",
+              "_cod_b": 3.533,
+              "_cod_beta": 90,
+              "_cod_c": 5.693,
+              "_cod_calcformula": "- In N -",
+              "_cod_cellformula": "- In2 N2 -",
+              "_cod_date": "2024-05-06",
+              "_cod_file": "9008869",
+              "_cod_firstpage": "85",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- In N -",
+              "_cod_gamma": 120,
+              "_cod_journal": "Crystal Structures",
+              "_cod_lastpage": "237",
+              "_cod_nel": "2",
+              "_cod_sg": "P 63 m c",
+              "_cod_sgHall": "P 6c -2c",
+              "_cod_sgNumber": "186",
+              "_cod_svnrevision": "291735",
+              "_cod_text": "Wyckoff, R. W. G.\nSecond edition. Interscience Publishers, New York, New York Note: wurtzite structure\nCrystal Structures\n1\n(1963)\n85-237",
+              "_cod_time": "07:56:00",
+              "_cod_title": "Second edition. Interscience Publishers, New York, New York Note: wurtzite structure",
+              "_cod_vol": 61.54,
+              "_cod_volume": "1",
+              "_cod_year": "1963",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "InN",
+              "chemical_formula_hill": "InN",
+              "chemical_formula_reduced": "InN",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "In",
+                "N"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2024-05-06T07:56:00Z",
+              "lattice_vectors": [
+                [
+                  3.533,
+                  0,
+                  0
+                ],
+                [
+                  -1.7665,
+                  3.05966775157042,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  5.693
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "9008869",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/9008869"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "9008869",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "2",
+              "_cod_Zprime": 0.166667,
+              "_cod_a": 3.11,
+              "_cod_alpha": 90,
+              "_cod_authors": "Xu, Y. N.; Ching, W. Y.",
+              "_cod_b": 3.11,
+              "_cod_beta": 90,
+              "_cod_c": 4.98,
+              "_cod_calcformula": "- Al N -",
+              "_cod_cellformula": "- Al2 N2 -",
+              "_cod_date": "2024-05-16",
+              "_cod_doi": "10.1103/PhysRevB.48.4335",
+              "_cod_file": "9011657",
+              "_cod_firstpage": "4335",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- Al N -",
+              "_cod_gamma": 120,
+              "_cod_journal": "Physical Review B",
+              "_cod_lastpage": "4351",
+              "_cod_nel": "2",
+              "_cod_sg": "P 63 m c",
+              "_cod_sgHall": "P 6c -2c",
+              "_cod_sgNumber": "186",
+              "_cod_svnrevision": "291877",
+              "_cod_text": "Xu, Y. N.; Ching, W. Y.\nElectronic, optical, and structural properties of some wurtzite crystals\nPhysical Review B\n48\n(1993)\n4335-4351",
+              "_cod_time": "06:53:45",
+              "_cod_title": "Electronic, optical, and structural properties of some wurtzite crystals",
+              "_cod_vol": 41.714,
+              "_cod_volume": "48",
+              "_cod_year": "1993",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "AlN",
+              "chemical_formula_hill": "AlN",
+              "chemical_formula_reduced": "AlN",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "Al",
+                "N"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2024-05-16T06:53:45Z",
+              "lattice_vectors": [
+                [
+                  3.11,
+                  0,
+                  0
+                ],
+                [
+                  -1.555,
+                  2.6933390057696,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  4.98
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "9011657",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/9011657"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "9011657",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          },
+          {
+            "attributes": {
+              "_cod_Z": "2",
+              "_cod_Zprime": 0.166667,
+              "_cod_a": 3.19,
+              "_cod_alpha": 90,
+              "_cod_authors": "Xu, Y. N.; Ching, W. Y.",
+              "_cod_b": 3.19,
+              "_cod_beta": 90,
+              "_cod_c": 5.189,
+              "_cod_calcformula": "- Ga N -",
+              "_cod_cellformula": "- Ga2 N2 -",
+              "_cod_date": "2024-05-16",
+              "_cod_doi": "10.1103/PhysRevB.48.4335",
+              "_cod_file": "9011658",
+              "_cod_firstpage": "4335",
+              "_cod_flags": "has coordinates",
+              "_cod_formula": "- Ga N -",
+              "_cod_gamma": 120,
+              "_cod_journal": "Physical Review B",
+              "_cod_lastpage": "4351",
+              "_cod_nel": "2",
+              "_cod_sg": "P 63 m c",
+              "_cod_sgHall": "P 6c -2c",
+              "_cod_sgNumber": "186",
+              "_cod_svnrevision": "291877",
+              "_cod_text": "Xu, Y. N.; Ching, W. Y.\nElectronic, optical, and structural properties of some wurtzite crystals\nPhysical Review B\n48\n(1993)\n4335-4351",
+              "_cod_time": "06:53:45",
+              "_cod_title": "Electronic, optical, and structural properties of some wurtzite crystals",
+              "_cod_vol": 45.729,
+              "_cod_volume": "48",
+              "_cod_year": "1993",
+              "chemical_formula_anonymous": "AB",
+              "chemical_formula_descriptive": "GaN",
+              "chemical_formula_hill": "GaN",
+              "chemical_formula_reduced": "GaN",
+              "dimension_types": [
+                1,
+                1,
+                1
+              ],
+              "elements": [
+                "Ga",
+                "N"
+              ],
+              "elements_ratios": [
+                0.5,
+                0.5
+              ],
+              "last_modified": "2024-05-16T06:53:45Z",
+              "lattice_vectors": [
+                [
+                  3.19,
+                  0,
+                  0
+                ],
+                [
+                  -1.595,
+                  2.76262103807236,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  5.189
+                ]
+              ],
+              "nelements": 2,
+              "nperiodic_dimensions": 3
+            },
+            "id": "9011658",
+            "links": {
+              "self": "https://www.crystallography.net/cod/optimade/v1.1.0/structures/9011658"
+            },
+            "relationships": {
+              "references": {
+                "data": [
+                  {
+                    "id": "9011658",
+                    "type": "references"
+                  }
+                ]
+              }
+            },
+            "type": "structures"
+          }
+        ],
+        "errors": [],
+        "links": {
+          "base_url": "https://www.crystallography.net/cod/optimade/v1.1.0/",
+          "next": null,
+          "prev": null
+        },
+        "included": [],
+        "meta": {
+          "api_version": "1.1.0",
+          "data_available": 526925,
+          "data_returned": 32,
+          "implementation": {
+            "issue_tracker": {
+              "href": "https://projects.ibt.lt/repositories/projects/cod-optimade/issues"
+            },
+            "maintainer": {
+              "email": "cod-bugs@ibt.lt"
+            },
+            "name": "Crystallography Open Database",
+            "source_url": "svn://www.crystallography.net/cod/tags/v0.12.0/cgi-bin/optimade.pl@300117",
+            "version": "v0.12.0"
+          },
+          "last_id": "9011658",
+          "more_data_available": false,
+          "provider": {
+            "description": "Crystallography Open Database",
+            "name": "Crystallography Open Database",
+            "prefix": "cod"
+          },
+          "query": {
+            "representation": "/structures?filter=%28nelements+%3D+2%29+AND+%28elements+HAS+ANY+%22Ga%22%2C+%22In%22%2C+%22Al%22%29+AND+%28elements+HAS+ANY+%22As%22%2C+%22P%22%2C+%22N%22%29+AND+%28NOT+elements+HAS+%22Pb%22%29"
+          },
+          "schema": "https://schemas.optimade.org/openapi/v1.1.0/optimade.json",
+          "time_stamp": "2025-08-01T01:10:58Z"
+        }
+      },
+      "https://optimade.materialscloud.org/archive/5p-vq": {
+        "data": [],
+        "errors": [],
+        "links": {
+          "next": null,
+          "prev": null
+        },
+        "included": [],
+        "meta": {
+          "query": {
+            "representation": "/structures?filter=(nelements%20=%202)%20AND%20(elements%20HAS%20ANY%20%22Ga%22,%20%22In%22,%20%22Al%22)%20AND%20(elements%20HAS%20ANY%20%22As%22,%20%22P%22,%20%22N%22)%20AND%20(NOT%20elements%20HAS%20%22Pb%22)"
+          },
+          "api_version": "1.1.0",
+          "more_data_available": false,
+          "schema": "https://schemas.optimade.org/openapi/v1.1.0/optimade.json",
+          "time_stamp": "2025-08-01T01:11:00.725200",
+          "data_returned": 0,
+          "provider": {
+            "name": "Materials Cloud Archive",
+            "description": "A platform for Open Science built for seamless sharing of resources in computational materials science",
+            "prefix": "mcloudarchive",
+            "homepage": "https://archive.materialscloud.org/"
+          },
+          "data_available": 2307,
+          "implementation": {
+            "name": "OPTIMADE Python Tools",
+            "version": "1.1.1",
+            "homepage": "https://optimade.org/optimade-python-tools",
+            "source_url": "https://github.com/Materials-Consortia/optimade-python-tools",
+            "maintainer": {
+              "email": "dev@optimade.org"
+            },
+            "issue_tracker": "https://github.com/Materials-Consortia/optimade-python-tools/issues"
+          }
+        }
+      }
+    }
+  }
+}

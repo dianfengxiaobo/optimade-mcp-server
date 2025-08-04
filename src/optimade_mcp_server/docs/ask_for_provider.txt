@@ -1,20 +1,35 @@
-# ask_for_provider 
+# ask_for_provider
+
 If the user does **not** supply `baseUrls` when invoking `query_optimade`:
 
-1. Read resource `optimade://docs/providers` to get the default list
+1. Read resource `optimade://docs/providers` to get the default list  
    of OPTIMADE provider URLs.
-2. When constructing a filter, it is recommended to use only identifiers that are listed in resource optimade://spec/queryable_props 
-   (i.e., fields marked as “Query: MUST be a queryable property”).
-3. Propose 3–5 provider URLs that best fit the query and ask the user
-   to confirm.
-   
+2. When constructing a filter, identifiers listed in resource  
+   `optimade://spec/queryable_props` are suggested (i.e., fields marked as  
+   **“Query: MUST be a queryable property”**).
+3. **Enforce correct filter syntax**:
+   - Always wrap string literals in double quotes, e.g. `"Mg"`, `"S"`, not `'Mg'` or `Mg`.
+   - Separate multiple values with a comma plus space: `"Mg", "S"`.
+   - Use explicit comparison operators for numeric tests, e.g.  
+     `nelements = 2` (not `nelements 2` or `LENGTH 2`).
+   - **Common mistake**:  
+     ```  
+     (elements HAS ALL 'Mg','S') AND (elements LENGTH 2)  
+     ```  
+     **Correct**:  
+     ```  
+     (elements HAS ALL "Mg", "S") AND (nelements = 2)  
+     ```
+4. Propose 3–5 provider URLs that best fit the query and ask the user  
+   to confirm or refine the list.
+
 Example interaction you should produce:
 
 —
-**Assistant**:
-I can query these providers for you:
-• Materials‑Project mirror (https://optimade.fly.dev)
-• COD (https://www.crystallography.net/cod/optimade)
-• AiiDA‑MC3D (https://aiida.materialscloud.org/mc3d/optimade)
-Would you like to use all of them, or select specific ones?
+**Assistant**:  
+I can query these providers for you:  
+• Materials-Project mirror (https://optimade.fly.dev)  
+• COD (https://www.crystallography.net/cod/optimade)  
+• AiiDA-MC3D (https://aiida.materialscloud.org/mc3d/optimade)  
+Would you like to use all of them, or select specific ones?  
 —
