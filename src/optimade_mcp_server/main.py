@@ -16,6 +16,7 @@ from optimade.filterparser import LarkParser
 from mcp.server import Server
 from mcp.types import Tool, TextContent, Resource
 from pydantic import AnyUrl
+from typing import List
 
 # ── 0. 环境与日志 ──────────────────────────────────────────────────────────
 load_dotenv()
@@ -131,34 +132,36 @@ def _make_text(text: str, mime: str = "text/plain") -> TextContent:
     return TextContent(type="text", text=text, mimeType=mime)
 
 @app.read_resource()
-async def read_resource(uri) -> TextContent:
+async def read_resource(uri) -> List[TextContent]:
     uri = str(uri)
 
     if uri == "optimade://docs/filters":
-        return _make_text(FILTER_DOC_TEXT, "text/markdown")
+        return [_make_text(FILTER_DOC_TEXT, "text/markdown")]
 
     if uri == "optimade://docs/providers":
-        return _make_text(json.dumps({"baseUrls": DEFAULT_BASE_URLS}, indent=2),
-                          "application/json")
+        return [_make_text(
+            json.dumps({"baseUrls": DEFAULT_BASE_URLS}, indent=2),
+            "application/json")]
 
     if uri == "optimade://docs/filter_presets":
-        return _make_text(json.dumps(FILTER_PRESETS, indent=2),
-                          "application/json")
+        return [_make_text(
+            json.dumps(FILTER_PRESETS, indent=2),
+            "application/json")]
 
     if uri == "optimade://prompts/ask_for_provider":
-        return _make_text(ASK_PROMPT_TEXT, "text/plain")
+        return [_make_text(ASK_PROMPT_TEXT, "text/plain")]
 
     if uri == "optimade://spec/queryable_props":
-        return _make_text(QUERY_JSON, "application/json")
+        return [_make_text(QUERY_JSON, "application/json")]
 
     if uri.startswith("optimade://results/"):
         key = uri.rsplit("/", 1)[-1]
         path = _dynamic_results.get(key)
         if path and path.exists():
-            return _make_text(path.read_text(encoding="utf-8"), "application/json")
+            return [_make_text(path.read_text(encoding="utf-8"),
+                               "application/json")]
 
     raise ValueError(f"Resource not found: {uri}")
-
 
 
 # 3.3 list_tools ------------------------------------------------------------
