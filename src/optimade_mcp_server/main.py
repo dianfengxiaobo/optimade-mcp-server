@@ -73,7 +73,7 @@ app = Server("optimade")
 async def list_resources() -> list[Resource]:
     static = [
         Resource(
-            uri="optimade://docs/optiamde_doc",
+            uri="optimade://docs/optimade_doc",
             name="OPTIMADE Filter Reference",
             mimeType="text/markdown",
             description="Complete OPTIMADE filter grammar.",
@@ -135,7 +135,7 @@ def _make_text(text: str, mime: str = "text/plain") -> TextContent:
 async def read_resource(uri) -> TextContent:        # ← 返回单个对象
     uri = str(uri)
 
-    if uri == "optimade://docs/optiamde_doc":
+    if uri == "optimade://docs/optimade_doc":
         return _make_text(FILTER_DOC_TEXT, "text/markdown")          # ★ 无逗号
 
     if uri == "optimade://docs/providers":
