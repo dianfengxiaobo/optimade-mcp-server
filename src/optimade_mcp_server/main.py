@@ -127,27 +127,38 @@ async def list_resources() -> list[Resource]:
     return static + dynamic
 
 # 3.2 read_resource ---------------------------------------------------------
+def _make_text(text: str, mime: str = "text/plain") -> TextContent:
+    return TextContent(type="text", text=text, mimeType=mime)
+
 @app.read_resource()
 async def read_resource(uri) -> TextContent:
-    uri = str(uri)                       # ← Δ1
+    uri = str(uri)
 
-    static_map = {
-        "optimade://docs/filters": FILTER_DOC_TEXT,
-        "optimade://docs/providers": json.dumps({"baseUrls": DEFAULT_BASE_URLS}, indent=2),
-        "optimade://docs/filter_presets": json.dumps(FILTER_PRESETS, indent=2),
-        "optimade://prompts/ask_for_provider": ASK_PROMPT_TEXT,
-        "optimade://spec/queryable_props": QUERY_JSON,
-    }
-    if uri in static_map:
-        return TextContent(type="text", text=static_map[uri])
+    if uri == "optimade://docs/filters":
+        return _make_text(FILTER_DOC_TEXT, "text/markdown")
 
-    if uri.startswith("optimade://results/"):    # ← Δ2：不会再报错
+    if uri == "optimade://docs/providers":
+        return _make_text(json.dumps({"baseUrls": DEFAULT_BASE_URLS}, indent=2),
+                          "application/json")
+
+    if uri == "optimade://docs/filter_presets":
+        return _make_text(json.dumps(FILTER_PRESETS, indent=2),
+                          "application/json")
+
+    if uri == "optimade://prompts/ask_for_provider":
+        return _make_text(ASK_PROMPT_TEXT, "text/plain")
+
+    if uri == "optimade://spec/queryable_props":
+        return _make_text(QUERY_JSON, "application/json")
+
+    if uri.startswith("optimade://results/"):
         key = uri.rsplit("/", 1)[-1]
         path = _dynamic_results.get(key)
         if path and path.exists():
-            return TextContent(type="text", text=path.read_text())
+            return _make_text(path.read_text(encoding="utf-8"), "application/json")
 
     raise ValueError(f"Resource not found: {uri}")
+
 
 
 # 3.3 list_tools ------------------------------------------------------------
