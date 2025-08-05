@@ -55,7 +55,7 @@ def safe_read(path: Path) -> str:
     return "<<FILE MISSING>>"
 
 FILTER_DOC_TEXT = safe_read(DOCS_DIR / "optimade_filters_original.md")
-ASK_PROMPT_TEXT = safe_read(DOCS_DIR / "ask_for_provider.txt")
+ASK_PROMPT_TEXT = safe_read(DOCS_DIR / "system_prompt.txt")
 QUERY_JSON      = safe_read(DOCS_DIR / "queryable_props.json")
 try:
     QUERYABLE = set(json.loads(QUERY_JSON)["queryableProps"])
@@ -100,8 +100,8 @@ async def list_resources() -> list[Resource]:
             ),
         ),
         Resource(
-            uri="optimade://prompts/ask_for_provider",
-            name="Prompt: ask_for_provider",
+            uri="optimade://prompts/system_prompt",
+            name="Prompt: system_prompt",
             mimeType="text/plain",
             description="System prompt guiding LLM when baseUrls missing (prefers white‑list fields).",
             content=TextContent(type="text", text=ASK_PROMPT_TEXT),
@@ -132,36 +132,39 @@ def _make_text(text: str, mime: str = "text/plain") -> TextContent:
     return TextContent(type="text", text=text, mimeType=mime)
 
 @app.read_resource()
-async def read_resource(uri) -> List[TextContent]:
+async def read_resource(uri) -> TextContent:        # ← 返回单个对象
     uri = str(uri)
 
     if uri == "optimade://docs/filters":
-        return [_make_text(FILTER_DOC_TEXT, "text/markdown")]
+        return _make_text(FILTER_DOC_TEXT, "text/markdown")          # ★ 无逗号
 
     if uri == "optimade://docs/providers":
-        return [_make_text(
+        return _make_text(
             json.dumps({"baseUrls": DEFAULT_BASE_URLS}, indent=2),
-            "application/json")]
+            "application/json"
+        )
 
     if uri == "optimade://docs/filter_presets":
-        return [_make_text(
+        return _make_text(
             json.dumps(FILTER_PRESETS, indent=2),
-            "application/json")]
+            "application/json"
+        )
 
-    if uri == "optimade://prompts/ask_for_provider":
-        return [_make_text(ASK_PROMPT_TEXT, "text/plain")]
+    if uri == "optimade://prompts/system_prompt":
+        return _make_text(ASK_PROMPT_TEXT, "text/plain")
 
     if uri == "optimade://spec/queryable_props":
-        return [_make_text(QUERY_JSON, "application/json")]
+        return _make_text(QUERY_JSON, "application/json")
 
     if uri.startswith("optimade://results/"):
-        key = uri.rsplit("/", 1)[-1]
+        key  = uri.rsplit("/", 1)[-1]
         path = _dynamic_results.get(key)
         if path and path.exists():
-            return [_make_text(path.read_text(encoding="utf-8"),
-                               "application/json")]
+            return _make_text(path.read_text(encoding="utf-8"),
+                               "application/json")
 
     raise ValueError(f"Resource not found: {uri}")
+
 
 
 # 3.3 list_tools ------------------------------------------------------------
