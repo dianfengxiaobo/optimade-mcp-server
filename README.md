@@ -14,6 +14,8 @@ This tool enables structured data queries across multiple OPTIMADE databases (e.
 
 4.Easily deployable via uvx, cline
 
+5.It is possible to interact with the client in natural language, enabling the large language model to generate the OPTIMADE query filter.
+
 Note: The query requires two parameters. One is the optimade query filter, and the other is the database to be queried.
 
 ---
@@ -98,7 +100,7 @@ This project is licensed under the MIT License. See LICENSE for details.
 **Q:** Are resources auto‑injected into the model’s context?  
 **A:** No. The client must call `resources/read` (or configure a startup/workflow step). The server **does** apply provider fallback automatically if `baseUrls` are omitted.
 
-**Q:** Can I use non‑whitelisted fields (like `band_gap`)?  
+**Q:** Can I use non‑whitelisted fields?  
 **A:** Yes. `lint_filter` returns `warn: band_gap`. The model should show a warning and ask you to confirm before querying.
 
 **Q:** How do I export the full result?  
