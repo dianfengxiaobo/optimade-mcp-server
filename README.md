@@ -6,15 +6,11 @@ A Model Context Protocol (MCP) tool for querying Optimade-compatible material da
 # 🎯 Overview
 This tool enables structured data queries across multiple OPTIMADE databases (e.g., Materials Project, Materials Cloud, COD), via MCP protocol. Key capabilities include:
 
-1.Custom or preset OPTIMADE filter queries
+1..Easily deployable via uvx, cline
 
-2.Configurable list of OPTIMADE providers via config/optimade_config.json
+2.It is possible to interact with the client in natural language, enabling the large language model to generate the OPTIMADE query filter.
 
-3.Proxy support via .env file
-
-4.Easily deployable via uvx, cline
-
-5.It is possible to interact with the client in natural language, enabling the large language model to generate the OPTIMADE query filter.
+3.The JSON returned by OPTIMADE will be saved locally, and a summary will be generated during the interaction.
 
 Note: The query requires two parameters. One is the optimade query filter, and the other is the database to be queried.
 
